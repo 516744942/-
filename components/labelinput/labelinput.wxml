@@ -1,0 +1,30 @@
+<!--components/labelInput/labelInput.wxml-->
+<view class='flex-r-b both-distance' bindtap='godeatil' wx:if="{{editType==1}}">
+  <view class='flex-r-s'>
+    <image wx:if="{{hasLogo}}" class='image-size' mode='widthFix' src='{{eachItem.image_ur}}'></image>
+    <view class='label'>{{eachItem.label}}</view>
+  </view>
+  <view class='f1 flex-r-e word'>
+    <view class='f1 name'>
+      {{inputVaue=='null'?'':inputVaue}}
+    </view>
+    <image class='jion-in' wx:if="{{canEdit}}" mode="aspectFill" lazy-load='true' src='/images/mine/in.png'></image>
+  </view>
+</view>
+
+<picker class='picker-state' mode="{{modelType}}" value="{{date}}" range='{{modelRange}}' start="1900-01-01" end="2100-01-01" bindchange="bindDateChange" wx:if="{{editType==2}}">
+  <view class='flex-r-b both-distance' editType="{{editType==2}}">
+    <view class='flex-r-s'>
+      <image wx:if="{{hasLogo&&eachItem.image_ur}}" class='image-size' mode='widthFix' src='{{eachItem.image_ur}}'></image>
+      <view class='label'>{{eachItem.label}}</view>
+    </view>
+    <view class='f1 flex-r-e word'>
+      <view class='f1 name'>
+        {{inputVaue}}
+      </view>
+      <image class='jion-in' wx:if="{{canEdit}}" mode="aspectFill" lazy-load='true' src='/images/mine/in.png'></image>
+    </view>
+  </view>
+  
+</picker>
+  <view class='line1'></view>

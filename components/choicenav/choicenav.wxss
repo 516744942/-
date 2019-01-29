@@ -1,0 +1,83 @@
+@import '../../utils/public.wxss';
+
+.tab-bar {
+  width: 750rpx;
+  height: 108rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
+.tab-bar-item {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  position: relative;
+  color: #bdbdbd;
+}
+.choice-them-color{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.choice-them::after {
+  content: "";
+  position: absolute;
+  width: 37.3%;
+  height: 4rpx;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%,-4rpx);
+  box-sizing: border-box;
+}
+
+.active-item {
+  color: #039be6;
+  position: relative;
+}
+
+.item-title {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(148, 148, 148, 1);
+  line-height: 108rpx;
+  text-align: center;
+}
+
+.choice-them{
+  color: #EC6D81;
+}
+.choice-them::after{
+  background: #EC6D81;
+}
+.choice-them::after {
+  content: "";
+  position: absolute;
+  width: 37.3%;
+  height: 4rpx;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%,-4rpx);
+  box-sizing: border-box;
+}
+/* 第二种颜色 */
+.choice-them-two{
+  color: #CB5252;
+}
+.choice-them-two::after{
+  background: #CB5252;
+}
+.choice-them-two::after {
+  content: "";
+  position: absolute;
+  width: 37.3%;
+  height: 4rpx;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%,-4rpx);
+  box-sizing: border-box;
+}

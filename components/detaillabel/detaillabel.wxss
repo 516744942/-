@@ -1,0 +1,52 @@
+/* components/detaillabel/detaillabel.wxss */
+@import '../../utils/public.wxss';
+
+.head {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.name {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(112, 112, 112, 1);
+  line-height: 28rpx;
+  margin-right: 20rpx;
+}
+
+.label {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(146, 168, 183, 1);
+  line-height: 24rpx;
+}
+
+.time {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(207, 207, 207, 1);
+  line-height: 24rpx;
+  margin-left: 20rpx;
+  min-width: 142rpx;
+}
+.flex-2 {
+  -webkit-box-flex: 2;
+  -moz-box-flex: 2;
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+  height: 100%;
+}
+.flex-3 {
+  -webkit-box-flex: 3;
+  -moz-box-flex: 3;
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3;
+  height: 100%;
+}

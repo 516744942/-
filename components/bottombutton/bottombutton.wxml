@@ -1,0 +1,39 @@
+<!--components/bottombutton/bottombutton.wxml-->
+<view class="fixed">
+  <view class='flex-r-s button-height'>
+    <!-- 免费 -->
+    <view class='flex-r-s w36' wx:if="{{(is_sale==2&&join==1)||is_sale==1}}">
+      <view class='flex-1 button flex-c' catchtap='goBackHome'>
+        <image class='label-pic' src='/images/home/learnMore.png'></image>
+        <view class='word'>更多</view>
+      </view>
+      <view class='flex-1 button flex-c' catchtap='goWrite'>
+        <image class='label-pic' src='/images/home/goComment.png'></image>
+        <view class='word'>评论</view>
+      </view>
+    </view>
+    <!-- 收费 -->
+    <view wx:else class='flex-1 flex-c' catchtap='goBackHome'>
+      <image class='label-pic' src='/images/home/learnMore.png'></image>
+      <view class='word'>更多</view>
+    </view>
+
+    <view class='flex-r-s w64'>
+      <view class='flex-1'>
+        <button open-type='share' class=' button share'>点击分享</button>
+      </view>
+      <view wx:if="{{system}}" class='flex-1'>
+        <view class='button join' wx:if="{{join==0}}" catchtap='goSchool'>加入学院</view>
+        <view class='button join' wx:else>已加入</view>
+      </view>
+      <view wx:else class='flex-1'>
+        <view class=' button join' wx:if="{{join==0}}" catchtap='goSchool'>加入学院</view>
+        <form bindsubmit="goSchool " report-submit="true " wx:else>
+          <button formType="submit " class=' button join' catchtap='goSchool'>赠送亲友</button>
+        </form>
+      </view>
+    </view>
+  </view>
+
+  <view class='systemX' wx:if="{{systemX}}"></view>
+</view>

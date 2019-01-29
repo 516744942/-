@@ -1,0 +1,59 @@
+<wxs src="../../utils/filters.wxs" module="F1" />
+<!-- 横向滚动 -->
+<scroll-view scroll-x="true" class='scoll-style' style="margin-bottom:{{mb}}rpx" bindscrolltolower="loadMore" scroll-into-view="{{toId}}" wx:if="{{list.length!=0}}">
+  <block wx:for="{{list}}" wx:key="index" id="to{{item.id}}">
+    <template is="{{showType}}" data="{{...item,index,activeShow,listLength}}">
+    </template>
+  </block>
+</scroll-view>
+
+<!-- 头像模块 -->
+
+<template name="header">
+  <view class='each-person' bindtap='goPersonDetail' id="{{tea_uid}}">
+    <view class='portrait-total'>
+      <image class='portrait' src='{{head_url}}' mode="aspectFill" lazy-load='true'></image>
+      <!-- <view class='portrait-identity'>{{item.teacherIdentity.name}}</view> -->
+      <view class='portrait-identity' wx:if="{{name!=null}}">{{name}}</view>
+      <view class='portrait-identity' wx:if="{{name==null}}"></view>
+    </view>
+    <view class='person-name text-line1'>{{nickname}}</view>
+    <text class='person-identity text-line1' wx:if="{{teacherIdentity!=null}}">{{F1.substr(teacherIdentity.name,14)}}</text>
+    <text decode="{{true}}" class='person-identity text-line1' wx:if="{{teacherIdentity==null}}">&ensp;</text>
+  </view>
+</template>
+
+<!-- 学院导航 -->
+<template name="nav">
+  <block wx:if="{{listLength>=1}}">
+    <view class="title-total2 {{listLength<3?'width50':'width33'}}" data-index="{{index}}" data-color='{{color}}' bind:tap='action' data-join='{{join_status}}' wx:if="{{button}}">
+      <view class="title-styl2  {{index==activeShow?'active-choice2':''}}">{{name}}</view>
+    </view>
+  </block>
+
+</template>
+<!-- 学院导航Two -->
+<template name="navTwo">
+  <block wx:if="{{listLength>=1}}">
+    <view class='p40 university flex-c' catchtap='joinSchool' id="{{id}}" data-index="{{index}}" wx:if="{{button}}">
+      <image class='university-pic' src='{{img_url}}' mode="aspectFill" lazy-load='true'></image>
+      <view class='university-name text-line1'>{{name}}</view>
+      <view class='university-info text-line1'>{{remark}}</view>
+    </view>
+  </block>
+</template>
+<!-- 活动详情头像 -->
+<template name="pic">
+  <image class='pic' src='{{head_url}}' mode="aspectFill" lazy-load='true'></image>
+</template>
+
+<!-- 往期学院点评-->
+<template name="comment">
+  <view class='each-comment p20 pt20'>
+    <view class='flex-r-s'>
+      <image class='comment-pic' src='{{head_url}}' mode="aspectFill" lazy-load='true'></image>
+      <view class='flex-1 text-line1'>{{name}}</view>
+    </view>
+    <view class='text-line4 content-des'>{{content}}</view>
+  </view>
+</template>

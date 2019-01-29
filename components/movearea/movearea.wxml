@@ -1,0 +1,8 @@
+<!--components/movearea/movearea.wxml-->
+ <movable-area class="move-plcae" scale-area style="height:{{move_height}}px;top:{{topPlace}}px;">
+      <movable-view class='continue-play ' direction="all" catchchange="moveclick" catchtap='comeIn' animation='false ' catchtouchend="move"  x="{{x}}" y="{{y}}" style='top:{{topPosition}};left:{{leftPosition}}'>
+        <!-- <view wx:if="{{!showMessage}}" class='show-time-title button-color ' animation="{{animationDataThree}}">续播:{{F1.substr(title,6)}}</view> -->
+        <image class='show-images ' animation="{{animationDataTwo}}" src='{{img}}'></image>
+        <view class='show-text' style='background-color:{{bgColor}}'> <view class='text-word' style='color:{{wordColor}}'>{{text}}</view></view>
+      </movable-view>
+    </movable-area>

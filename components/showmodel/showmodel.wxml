@@ -1,0 +1,10 @@
+<!--components/showmodel/showmodel.wxml-->
+<view wx:if="{{show}}" class='bg-color' catchtap='closeModel'>
+  <view class='show-content'>
+    <image class='model-pic' src="/images/college/modelPic.png"></image>
+    <view class='show-model-wrod'> 由于ios限制，苹果用户可以联系客服完成</view>
+    <form bindsubmit="goOther" report-submit="true">
+      <button open-type="contact" formType="submit" class='style-button' >联系客服，回复“{{showType}}”</button>
+    </form>
+  </view>
+</view>

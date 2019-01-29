@@ -1,0 +1,8 @@
+<!--components/search/search.wxml-->
+<view class='mi20'>
+  <view class='search-position'>
+    <input class='audio-input' bindinput="comfirm" bindblur="searchblur" placeholder="{{placeholder}}" bindconfirm="comfirm" confirm-type="search" placeholder-style="color:#92A8B7"></input>
+    <icon wx:if="{{!focus}}"  class='input-icon' type="search" size="15" />
+  </view>
+</view>
+

@@ -1,0 +1,50 @@
+<wxs src="../../utils/filters.wxs" module="F1" />
+
+<template is="{{showType}}" data="{{...detail}}">
+</template>
+<!-- 盒子样式1 -->
+<template name="1">
+  <view class='flex-r m10 box teacher-box'>
+    <image class='teacher-pic' mode="aspectFill" src='{{head_url}}'></image>
+    <view class='flex-c-s flex-1'>
+      <view class='flex-r-s al'>
+        <view class='name'>{{nickname}}</view>
+        <view class='flex-flex-1 label'>{{teacherIdentity.name}}</view>
+      </view>
+      <view class='des al' >{{remark}} </view>
+    </view>
+  </view>
+</template>
+
+<!-- 盒子样式2 -->
+<template name="2">
+  <view class='m20'>
+    <view class='flex-r  box teacher-box'>
+      <image class='teacher-pic teacher-pic2' mode="aspectFill" src='{{img}}'></image>
+      <view class='flex-c-s flex-1'>
+        <view class='flex-c-s al'>
+          <view class='name name2 al'>{{name}}</view>
+          <view class='flex-flex-1 label al '>{{label}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='des des2 text-line2'>{{detail}} </view>
+  </view>
+
+
+</template>
+<!-- 盒子样式3 -->
+
+<template name="3">
+  <view class='each-person' bindtap='goPersonDetail' id="{{tea_uid}}">
+    <view class='portrait-total'>
+      <image class='portrait' src='{{head_url}}' mode="aspectFill" lazy-load='true'></image>
+      <!-- <view class='portrait-identity'>{{item.teacherIdentity.name}}</view> -->
+     
+    </view>
+    <view class='person-name text-line1'>{{nickname}}</view>
+    <view class='person-identity text-line1' wx:if="{{teacherIdentity!=null}}">{{F1.substr(teacherIdentity.name,14)}}</view>
+    <view class='person-identity text-line1' wx:if="{{teacherIdentity==null}}"></view>
+    <view class='tutor-status'></view>
+  </view>
+</template>

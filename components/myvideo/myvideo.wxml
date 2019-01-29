@@ -1,0 +1,28 @@
+<!--components/myvideo/myvideo.wxml-->
+<wxs src="../../utils/filters.wxs" module="F1" />
+
+<!-- 已经付费 或者 免费 -->
+<view wx:if="{{free==1 ||courseDeatil.join_status==0}}">
+  <!-- <video id='myVideo' class='video-detail' src="{{video_url}}" custom-cache='false' objectFit="cover" bindtimeupdate="getTime" bindplay="getvdetail" initial-time="{{videoProgress}}">
+    <cover-view class='cover-video-two' wx:if="{{network!='wifi'&&wifi}}" catchtap='confirmWiFi'>
+      <cover-view>您正在使用非WIFI网络</cover-view>
+      <cover-view class='flex-layout button-sie'>
+        <cover-image class='show-size' src='/images/home/play.png'></cover-image>
+        <cover-view>使用流量播放</cover-view>
+      </cover-view>
+    </cover-view>
+  </video> -->
+</view>
+
+<!-- 没有付费 -->
+<view wx:else class='course-poster'>
+  <image class='poster-pic' mode="aspectFill" src='{{detail.img_url}}'></image>
+  <view class='poster-bg' catchtap='goSchool'>
+    <image class='poster-play'  src='/images/home/play.png'></image>
+    <view class='can-learn'>加入学院即可开始学习</view>
+     <view class='flex-r-s show-position'>
+          <image class='item-see1' src='/images/home/see.png'></image>
+          <view class='item-number'> {{F1.numberDeal(detail.play_num)}}</view>
+        </view>
+  </view>
+</view>

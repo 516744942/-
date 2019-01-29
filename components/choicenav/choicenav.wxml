@@ -1,0 +1,25 @@
+<view class='tab-bar'>
+  <block
+    wx:for='{{list}}'
+    wx:for-index='index'
+    wx:for-item='item'
+    wx:key='*this'
+  >
+    <view
+      wx:if="{{showType==1}}"
+      data-index='{{index}}'
+      bind:tap='action'
+      class=" tab-bar-item item-title {{activeIndex == index ? 'choice-them' : ''}}"
+    >
+      {{item}}          
+    </view>
+     <view
+      wx:if="{{showType==2}}"
+      data-index='{{index}}'
+      bind:tap='action'
+      class=" tab-bar-item item-title {{activeIndex == index ? 'choice-them-two' : ''}} "
+    >
+      {{item}}          
+    </view>
+  </block>
+</view>

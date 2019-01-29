@@ -1,0 +1,20 @@
+<!--pages/navigation-bar/navigation-bar.wxml-->
+<wxs src="../../utils/filters.wxs" module="F1" />
+<view style="width:100vw; height:{{totalHeight}}px;background:#fff;"></view>
+<view class="{{bgClass}} _nav" style="padding-top:{{barHeight}}px; {{navBgStyle}} {{bgStyle}}">
+  <view class="nav-back {{backIcon?'nav-back-left':''}}" style="height:{{navHeight}}px; padding-top:{{barHeight+5}}px;">
+    <view catchtap="_onTap" class="icon-container" wx:if="{{backIcon}}">
+      <image class="nav-icon" src="{{navIconUrl}}"></image>
+    </view>
+    <view catchtap="_goHome" class="icon-container " wx:if="{{homeIcon}}">
+        <image class="home-icon" src="{{homeIconUrl}}"></image>
+    </view>
+  </view>
+  <view class="loading" style="height:{{navHeight}}px;line-height:{{navHeight}}px">
+    <view wx:if="{{showLoading}}">
+      <image class="loading-icon"></image> 
+    </view>
+    <text decode="{{true}}" space="emsp" class="nav-title {{titleClass}}" style=" {{titleStyle}}" >&emsp;{{F1.substr(title,8)}}&emsp;</text>
+  </view>
+  <view class="slot"><slot></slot></view>
+</view>

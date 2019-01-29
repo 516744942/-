@@ -1,0 +1,202 @@
+/* components/rowscroll/rowsroll.wxss */
+@import '../../utils/public.wxss';
+
+.scoll-style {
+  /* display: flex; */
+  white-space: nowrap;
+  margin-bottom: 40rpx;
+}
+
+.each-person {
+  display: inline-block;
+  width: 280rpx;
+  height: 280rpx;
+  text-align: center;
+  box-sizing: border-box;
+  background: rgba(238, 238, 238, 1);
+  margin-left: 20rpx;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.each-person:last-child {
+  margin-right: 20rpx;
+}
+
+.portrait-total {
+  position: relative;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 140rpx;
+  left: 50%;
+  transform: translate(-50%, 0);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin-top: 20rpx;
+  margin-bottom: 15rpx;
+  z-index: 2;
+}
+
+.portrait {
+  margin-right: 10px;
+  width: 140rpx;
+  height: 140rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  border-radius: 140rpx;
+}
+
+.portrait-identity {
+  position: absolute;
+  top: 105rpx;
+  left: 0rpx;
+  z-index: 2;
+  width: 100%;
+  /* margin-top: 100rpx; */
+  color: #fff;
+  background: rgba(255, 226, 146, 0.5);
+}
+
+.person-name {
+  text-align: center;
+  margin-bottom: 15rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+}
+
+.person-identity {
+  text-align: center;
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(146, 168, 183, 1);
+  line-height: 20rpx;
+  height: 20px;
+}
+
+/* 样式2 */
+
+.title-total2 {
+  height: 84rpx;
+  display: inline-block;
+}
+
+.title-styl2 {
+  text-align: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 84rpx;
+}
+
+.active-choice2 {
+  color: rgba(255, 255, 255, 1);
+}
+
+.width50 {
+  width: 50%;
+}
+
+.width33 {
+  min-width: 33%;
+}
+
+/* 样式3 */
+
+.pic {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  margin-top: 20rpx;
+  display: inline-block;
+}
+
+/* 样式4 */
+
+.each-comment {
+  display: inline-block;
+  width: 460rpx;
+  height: 260rpx;
+  background: rgba(255, 255, 255, 1);
+  margin-right: 20rpx;
+  border-radius: 8rpx;
+}
+
+.comment-pic {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-right: 30rpx;
+}
+
+.content-des {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(178, 178, 178, 1);
+  line-height: 34rpx;
+  width: 420rpx;
+  margin-top: 20rpx;
+  white-space: normal;
+}
+
+/* navTwo */
+
+.university {
+  width: 346rpx;
+  height: 160rpx;
+  align-items: flex-start;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  box-shadow: 0 10rpx 10rpx #ccc;
+  display: inline-block;
+  margin-right: 20rpx;
+  position: relative;
+}
+
+.university-pic {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 346rpx;
+  height: 160rpx;
+  z-index: 0;
+  border-radius: 8rpx;
+  box-shadow: 0 10rpx 10rpx #ccc;
+}
+
+.university:nth-of-type(1) {
+  background: #cb5252;
+  margin-left: 20rpx;
+}
+
+.university:nth-of-type(2) {
+  background: #ef845d;
+}
+
+.university-name {
+  position: relative;
+  z-index: 5;
+  font-size: 36rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 1);
+  line-height: 36rpx;
+  margin-bottom: 16rpx;
+}
+
+.university-info {
+  position: relative;
+  z-index: 5;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 28rpx;
+}

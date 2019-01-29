@@ -1,0 +1,11 @@
+<!--components/joinbutton/joinbutton.wxml-->
+<view wx:if="{{system}}" class='flex-1' class='buttom-f'>
+  <view class='style-button  bgchoice-them-color'>已加入学院</view>
+  <view class='systemX' wx:if="{{systemX}}"></view>
+</view>
+<view wx:else class='flex-1' class='buttom-f'>
+  <form bindsubmit="buyGift" report-submit="true">
+    <button formType="submit" class='style-button  bgchoice-them-color'>赠送亲友</button>
+  </form>
+  <view class='systemX' wx:if="{{systemX}}"></view>
+</view>

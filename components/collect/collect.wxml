@@ -1,0 +1,4 @@
+<view  catchtap='collect'>
+  <image wx:if="{{collect ==1}}" class='collect' src='/images/home/collected.png'></image>
+  <image wx:else class='collect' src='/images/home/collect.png'></image>
+</view>

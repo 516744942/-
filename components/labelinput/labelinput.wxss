@@ -1,0 +1,79 @@
+/* components/labelInput/labelInput.wxss */
+
+/* flex水平布局 两端  */
+@import '../../utils/public.wxss';
+
+.flex-r-b {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+}
+
+/* flex水平布局 开始 */
+
+.flex-r-s {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 15rpx;
+}
+
+/* flex水平布局 开始 */
+
+.flex-r-e {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 15rpx;
+}
+
+.image-size {
+  width: 32rpx;
+  margin-right: 15rpx;
+}
+
+.f1 {
+  flex: 1;
+}
+
+.both-distance {
+  padding: 15rpx 40rpx;
+  min-height: 105rpx;
+  box-sizing: border-box;
+}
+
+.word {
+  text-align: right;
+  font-size: 24rpx;
+  color: #929292;
+}
+
+.icon {
+  height: 20rpx;
+  width: 12rpx;
+  margin-left: 15rpx;
+}
+
+.jion-in {
+  width: 12rpx;
+  height: 21rpx;
+  margin-left: 26rpx;
+}
+
+.label {
+  font-size: 28rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 700;
+  color: rgba(75, 84, 92, 1);
+}
+
+.name {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(169, 169, 169, 1);
+}

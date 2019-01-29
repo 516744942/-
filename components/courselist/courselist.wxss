@@ -1,0 +1,315 @@
+/* components/courselist/courselist.wxss */
+@import '../../utils/public.wxss';
+
+.no-list-pic {
+  width: 390rpx;
+  height: 384rpx;
+}
+
+.f-wrap {
+  flex-wrap: wrap;
+}
+
+/* 样式1 */
+
+.each-item-style1 {
+  box-shadow: 0 0 32rpx 0 rgba(0, 0, 0, 0.11);
+  border-radius: 8rpx;
+  width: 340rpx;
+  height: 340rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
+}
+
+.each-image-top {
+  width: 340rpx;
+  height: 180rpx;
+  position: relative;
+}
+
+.each-image-style1 {
+  border-radius: 8rpx 8rpx 0px 0px;
+  width: 340rpx;
+  height: 180rpx;
+}
+
+.label-style1 {
+  border-radius: 0px 8rpx 0px 0px;
+  font-size: 16rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 32rpx;
+  width: 72rpx;
+  height: 32rpx;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  text-align: center;
+  transform: translateY(-100%);
+}
+
+.label-style2 {
+  border-radius: 0px 8rpx 0px 8rpx;
+}
+
+.label1-style1 {
+  background: rgba(190, 184, 170, 1);
+}
+
+.label2-style1 {
+  background: rgba(215, 205, 98, 1);
+}
+
+.item-title1 {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  line-height: 34rpx;
+  min-height: 68rpx;
+  text-align: left;
+  margin-top: 15rpx;
+  margin-bottom: 20px;
+}
+
+.item-see1 {
+  width: 24rpx;
+  height: 18rpx;
+  margin-right: 12rpx;
+}
+
+.item-teacher1 {
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(146, 168, 183, 1);
+  line-height: 20rpx;
+}
+
+.item-number {
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(207, 207, 207, 1);
+  line-height: 20rpx;
+}
+
+/* 样式2  更多列表 */
+
+.each-item-style2 {
+  width: 710rpx;
+  height: 220rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 32rpx 0px rgba(37, 37, 37, 0.09);
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+}
+
+.each-image-total {
+  width: 280rpx;
+  height: 220rpx;
+  position: relative;
+}
+
+.each-image-style2 {
+  width: 280rpx;
+  height: 220rpx;
+  background: rgba(216, 216, 216, 1);
+  border-radius: 8rpx 0 0 8rpx;
+  /* margin-right: 20rpx; */
+}
+
+.inner-html2 {
+  display: inline-block;
+}
+
+.each-title-style2 {
+  margin-bottom: 32rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  line-height: 40rpx;
+  min-height: 120rpx;
+}
+
+.each-data-total2 {
+  width: 100%;
+}
+
+.each-data-style2 {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(207, 207, 207, 1);
+  line-height: 24rpx;
+}
+
+.each-time-style2 {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(146, 168, 183, 1);
+  line-height: 24rpx;
+}
+
+/* 样式3 为您推荐列表*/
+
+.each-title-style3 {
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  line-height: 34rpx;
+  /* min-height: 68rpx; */
+}
+
+.each-content-style3 {
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(166, 166, 166, 1);
+  line-height: 28rpx;
+  min-height: 56rpx;
+  margin-bottom: 22rpx;
+}
+
+.first-icon3 {
+  margin-right: 30rpx;
+}
+
+/* 样式4*/
+
+.each-title-style4 {
+  margin-top: 18rpx;
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  line-height: 40rpx;
+  min-height: 80rpx;
+}
+
+.have-see-style4 {
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(207, 207, 207, 1);
+  line-height: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.progress-style4 {
+  width: 300rpx;
+}
+
+/* 我的活动样式 样式5 */
+
+.each-item-style5 {
+  width: 670rpx;
+  height: 380rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 32rpx 0px rgba(37, 37, 37, 0.09);
+  border-radius: 16rpx;
+  margin-bottom: 30rpx;
+}
+
+.each-image-top5 {
+  position: relative;
+  width: 670rpx;
+  height: 240rpx;
+}
+
+.each-label-style5 {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 84rpx;
+  height: 36rpx;
+  transform: translateY(-100%);
+}
+
+.each-image-style5 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 670rpx;
+  height: 240rpx;
+  border-radius: 16rpx 16rpx 0rpx 0rpx;
+}
+
+.each-title-style5 {
+  font-size: 32rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 700;
+  color: rgba(51, 51, 51, 1);
+  line-height: 32rpx;
+  width: 670rpx;
+  padding-left: 30rpx;
+  margin-bottom: 20rpx;
+  box-sizing: border-box;
+}
+
+.bottom-des5 {
+  width: 100%;
+}
+
+.adress5 {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(169, 169, 169, 1);
+  line-height: 24rpx;
+}
+
+.time5 {
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(207, 207, 207, 1);
+  line-height: 20rpx;
+  margin-left: 20rpx;
+}
+
+/* 样式6 */
+
+.each-style-total6 {
+  width: 710rpx;
+  min-height: 522rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 16rpx 0 rgba(0, 0, 0, 0.11);
+  border-radius: 8rpx;
+  margin-bottom: 30rpx;
+}
+
+.each-image-total6 {
+  width: 100%;
+  height: 376rpx;
+  position: relative;
+}
+
+.each-image-style6 {
+  width: 100%;
+  height: 376rpx;
+  border-radius: 8rpx 0 0 8rpx;
+}
+
+.each-title-style6 {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  line-height: 32rpx;
+  margin-top: 30rpx;
+}
+
+.each-content-style6 {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(146, 168, 183, 1);
+  line-height: 24rpx;
+}

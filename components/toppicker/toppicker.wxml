@@ -1,0 +1,23 @@
+<!--components/toppicker/toppicker.wxml-->
+<view class='choice-picker flex-r-b'>
+  <view class='flex-1'>
+    <picker bindcancel="bindPayTypePickerChangec" bindchange='bindPayTypePickerChange' value="{{courseType}}" range-key='label' range="{{classType}}" class='picker-height' >
+      <view  class='flex-r content-height'>
+        <view class="picker" wx:if="{{courseType==-1}}">课程类型</view>
+        <view class="picker" wx:if="{{courseType!=-1}}">{{classType[courseType].label}}</view>
+        <image class='sort-pic' src='/images/home/sort.png'></image>
+      </view>
+
+    </picker>
+  </view>
+  <view class='flex-1'>
+    <picker bindcancel="bindTypePickerChangec" bindchange='bindTypePickerChangeT' value="{{universityType}}" range-key='name' range="{{university}}" class='picker-height'>
+      <view  class= 'flex-r content-height'>
+        <view class="picker" wx:if="{{universityType==-1}}">学院</view>
+        <view class="picker" wx:if="{{universityType!=-1}}">{{university[universityType].name}}</view>
+        <image class='sort-pic' src='/images/home/sort.png'></image>
+      </view>
+
+    </picker>
+  </view>
+</view>

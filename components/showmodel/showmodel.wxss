@@ -1,0 +1,48 @@
+/* components/showmodel/showmodel.wxss */
+@import '../../utils/public.wxss';
+
+.bg-color {
+  position: fixed;
+  top: 0;
+  z-index: 555;
+  width: 750rpx;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.show-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 888;
+  width: 560rpx;
+  height: 700rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 16px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.model-pic {
+  width: 224rpx;
+  height: 206rpx;
+  margin: 70rpx 0 74rpx;
+}
+
+.show-model-wrod {
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(98, 98, 98, 1);
+  line-height: 40rpx;
+  padding: 0 30rpx;
+  margin-bottom: 138rpx;
+}
+
+.style-button {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  padding: 0;
+}

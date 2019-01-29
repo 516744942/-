@@ -1,0 +1,8 @@
+/* components/collect/collect.wxss */
+@import '../../utils/public.wxss';
+
+.collect{
+  width: 36rpx;
+  height: 34rpx;
+  padding: 10rpx;
+}

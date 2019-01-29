@@ -1,0 +1,61 @@
+/* components/bottombutton/bottombutton.wxss */
+@import '../../utils/public.wxss';
+
+.fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  min-height: 98rpx;
+  background: #fff;
+  z-index: 500;
+  box-shadow: 0px -4rpx 8rpx 0px rgba(0, 0, 0, 0.15);
+}
+.button-height{
+  height: 98rpx;
+}
+
+.w36 {
+  width: 270rpx;
+}
+
+.w64 {
+  width: 480rpx;
+}
+
+.button {
+  line-height: 98rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  border-radius:0;
+  border: none; 
+}
+.button::after{
+  display: none;
+}
+
+.share {
+  background: rgba(236, 109, 129, 0.5);
+  border-radius:0; 
+}
+
+.join {
+  background: #ec6d81;
+}
+.label-pic{
+  width: 52rpx;
+  height: 52rpx;
+}
+.word {
+  font-size: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(148, 148, 148, 1);
+  line-height: 28rpx;
+}
+.systemX{
+  height: 34px;
+  background: #fff;
+}

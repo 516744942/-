@@ -1,0 +1,7 @@
+/* components/joinbutton/joinbutton.wxss */
+@import '../../utils/public.wxss';
+
+.style-button{
+  width: 100%;
+
+}

@@ -1,0 +1,151 @@
+<!--components/courselist/courselist.wxml-->
+<wxs src="../../utils/filters.wxs" module="F1" />
+
+<view class="flex-r-b p20 f-wrap {{showType==5?'pl40':''}}" wx:if="{{listLength!=0}}">
+  <block wx:for="{{list}}" wx:key="index">
+    <view catchtap='goDeatil' id="{{item.cou_id||item.id}}" data-son="{{item.son_id}}">
+      <template is="{{showType}}" data="{{...item,index}}">
+      </template>
+    </view>
+  </block>
+
+</view>
+
+<!-- 没有 -->
+<view wx:if="{{listLength==0}}" style='text-align:center;margin-top:144rpx;'>
+  <image class='no-list-pic' src="/images/college/nolist.png" mode="aspectFill" lazy-load='true'></image>
+</view>
+<!-- 首页列表 -->
+<template name="1">
+  <view class='each-item-style1'>
+    <view class='each-image-top'>
+      <image class='each-image-style1' src="{{img_url}}" mode="aspectFill" lazy-load='true'></image>
+      <view class="{{type==1?'label1-style1':'label2-style1'}} label-style1">{{type==1?'音频':'视频'}}</view>
+    </view>
+    <view class='p20'>
+      <view class='text-line2 item-title1'>{{is_sales==1?'【免费】':'【收费】'}}{{title}}</view>
+      <view class='flex-r-b'>
+        <view class='item-teacher1 flex-1 text-line1'>{{teacherIdentity.name}}</view>
+        <view class='flex-r-b'>
+          <image class='item-see1' src='/images/home/see.png'></image>
+          <view class='item-number'> {{F1.numberDeal(play_num)}}</view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</template>
+
+<!-- 更多列表 -->
+<template name="2">
+  <view class='flex-r-b each-item-style2'>
+    <view class='each-image-total '>
+      <image class='each-image-style2' src="{{img_url}}" mode="aspectFill" lazy-load='true'></image>
+      <view class="{{type==1?'label1-style1':'label2-style1'}} label-style1 label-style2">{{type==1?'音频':'视频'}}</view>
+    </view>
+
+    <view class='flex-1 pt20 flex-b box p20'>
+      <view class=' each-title-style2 text-line3 al'>
+        <view class='inner-html2 '>{{is_sales==1?'【免费】':'【收费】'}}</view>
+        {{title}}
+      </view>
+      <view class='flex-r-b each-data-total2'>
+        <view class='each-data-style2'>{{F1.timeSub(update_time)}}</view>
+        <view class='each-time-style2'>时长{{F1.dealTime(time_total)}}</view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!-- 首页列表为您推荐-->
+<template name="3">
+  <view class='flex-r-b each-item-style2'>
+    <view class='each-image-total '>
+      <image class='each-image-style2' src="{{img_url}}" mode="aspectFill" lazy-load='true'></image>
+      <view class="{{type==1?'label1-style1':'label2-style1'}} label-style1 label-style2">{{type==1?'音频':'视频'}}</view>
+    </view>
+
+    <view class='flex-1 pt20 flex-b box p20'>
+      <view class=' each-title-style3 text-line2 al'>【{{is_sales==1?'免费':'收费'}}】{{title}}</view>
+      <view class=' each-content-style3 text-line2 al'>{{remark}}</view>
+      <view class='flex-r-s al'>
+        <view class='flex-r-s first-icon3'>
+          <image class='item-see1' src='/images/home/see.png'></image>
+          <view class='item-number'> {{F1.numberDeal(play_num)}}</view>
+        </view>
+        <view class='flex-r-s'>
+          <image class='item-see1' src='/images/home/comment.png'></image>
+          <view class='item-number'> {{F1.numberDeal(comment_num)}}</view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</template>
+
+<!-- 观看历史 -->
+<template name="4">
+  <view class='flex-r-b each-item-style2'>
+    <view class='each-image-total '>
+      <image class='each-image-style2' src="{{course.img_url}}" mode="aspectFill" lazy-load='true'></image>
+      <view class="{{course.type==1?'label1-style1':'label2-style1'}} label-style1 label-style2">{{course.type==1?'音频':'视频'}}</view>
+    </view>
+    <view class='flex-1 pt20 flex-c-s box p20 '>
+      <view class=' each-title-style4 text-line2 al'>{{course.title}}</view>
+      <view class='have-see-style4 al'>已观看{{F1.timeMinute(progress_bar)}}分钟/共{{F1.timeMinute(course.time_total)}}分钟</view>
+      <progress percent="{{progress_bar / course.time_total * 100}}" class='progress-style4 al' stroke-width="2" activeColor="#EC6D81" />
+    </view>
+  </view>
+</template>
+
+<!-- 我的活动 -->
+<template name="5">
+  <view class='flex-b each-item-style5'>
+    <view class='each-image-top5'>
+      <image class='each-image-style5' src="{{img_url}}" mode="aspectFill" lazy-load='true'></image>
+      <!-- 报名中 -->
+      <image class='each-label-style5' wx:if="{{status==1}}" src="/images/mine/activeIn.png" mode="aspectFill" lazy-load='true'></image>
+      <image class='each-label-style5' wx:if="{{status==2}}" src="/images/mine/activefull.png" mode="aspectFill" lazy-load='true'></image>
+      <!-- 已报名 -->
+      <image class='each-label-style5' wx:elif="{{status==4}}" src="/images/mine/actived.png" mode="aspectFill" lazy-load='true'></image>
+      <!-- 已结束 -->
+      <image class='each-label-style5' wx:elif="{{status==3}}" src="/images/mine/activeOver.png" mode="aspectFill" lazy-load='true'></image>
+    </view>
+    <view class='flex-1 pt20 flex-c-s box p20' style='width:670rpx;'>
+      <view class=' each-title-style5  text-line1'>{{title}}</view>
+      <view class='flex-r-b bottom-des5 box'>
+        <view class='adress5 flex-1 text-line1'>活动地点:{{full_name}}</view>
+        <view class='time5'>{{act_time}}</view>
+      </view>
+
+    </view>
+  </view>
+</template>
+
+
+<!-- 大学样式改 -->
+<template name="6">
+  <view class='each-style-total6'>
+    <view class='each-image-total6 '>
+      <image class='each-image-style6' src="{{img_url}}" mode="aspectFill" lazy-load='true'></image>
+      <view class="{{type==1?'label1-style1':'label2-style1'}} label-style1 label-style2">{{type==1?'音频':'视频'}}</view>
+    </view>
+    <view class=' each-title-style6 p20 text-line2 al'>【{{is_sales==1?'免费':'收费'}}】{{title}}</view>
+    <view class='flex-r-b pt30  box p20'>
+      <view class='flex-1 each-content-style6 text-line2 al'>{{teacherUserData.nickname}}</view>
+      <view class='flex-r-s al'>
+        <view class='flex-r-s '>
+          <image class='item-see1' src='/images/home/see.png'></image>
+          <view class='item-number'> {{F1.numberDeal(play_num)}}</view>
+        </view>
+        <!-- <view class='flex-r-s'>
+          <image class='item-see1' src='/images/home/comment.png'></image>
+          <view class='item-number'> {{F1.numberDeal(comment_num)}}</view>
+        </view> -->
+      </view>
+
+    </view>
+  </view>
+</template>
+
+

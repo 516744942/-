@@ -1,0 +1,29 @@
+<!--components/detaillabel/detaillabel.wxml-->
+<wxs src="../../utils/filters.wxs" module="F1" />
+
+<view class='flex-r-b p20 pt16 bgw' wx:if="{{showType==1}}" style="{{boxStyle}}" catchtap='goDetail' id="{{detail.teacherUserData.tea_uid}}">
+  <view class='flex-r-s flex-1'>
+    <image class='head' src="{{detail.teacherUserData.head_url}}"></image>
+    <view class='name '>{{detail.teacherUserData.nickname}}</view>
+    <view class='label flex-3'>{{detail.teacherUserData.tea_iden}}</view>
+  </view>
+  <view class='time'>{{F1.timeSub(detail.update_time)}}</view>
+</view>
+
+<!-- 样式二 -->
+<view class='flex-r-b p20 pt16 bgw' wx:if="{{showType==2}}" style="{{boxStyle}}">
+  <view class='flex-r-s flex-1'>
+    <image class='head' src="{{detail.u.head_url}}"></image>
+    <view class='name flex-1'>{{detail.u.nickname}}</view>
+  </view>
+  <view class='time'>{{F1.timeSub(detail.create_time)}}</view>
+</view>
+
+<!-- 样式三 -->
+<cover-view class='flex-r-b p20 pt16 bgw' wx:if="{{showType==3}}" style="{{boxStyle}}">
+  <cover-view class='flex-r-s flex-1'>
+    <cover-image class='head' src="{{detail.u.head_url}}"></cover-image>
+    <cover-view class='name flex-1'>{{detail.u.nickname}}</cover-view>
+  </cover-view>
+  <cover-view class='time'>{{F1.timeSub(detail.create_time)}}</cover-view>
+</cover-view>

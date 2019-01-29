@@ -1,0 +1,20 @@
+<!--components/lookmore/lookmore.wxml-->
+
+<view class='notability-top' bindtap='masterLlookMore' wx:if="{{showType==1}}">
+  <view class='notability-title'>
+    <view class='notability-title-content'>{{title}}</view>
+    <!-- <image class='notability-title-bg' src='/images/index/titlebg.png'></image> -->
+  </view>
+  <view class='master-look-more'>{{word}}</view>
+</view>
+
+<view class='flex-r-b more-total p20' bindtap='masterLlookMore' wx:if="{{showType==2}}">
+  <view class='title'>{{title}}</view>
+  <!-- <image class='notability-title-bg' src='/images/index/titlebg.png'></image> -->
+  <view class='look-more-Two'>{{word}}</view>
+</view>
+
+<view class='flex-r-b more-total3 ' style='background:{{bgColor}}' bindtap='masterLlookMore' wx:if="{{showType==3}}">
+  <view class='title3'>{{title}}</view>
+  <!-- <image class='notability-title-bg' src='/images/index/titlebg.png'></image> -->
+</view>
