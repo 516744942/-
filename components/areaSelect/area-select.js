@@ -61,15 +61,28 @@ Component({
       const provinces = [];
       const citys = [];
       const countys = [];
-      for (let i = 0; i < cityData.length; i++) {
+
+      const cityDataLen = cityData.length;
+      for (let i = 0; i < cityDataLen; i++) {
         provinces.push(cityData[i].name);
       }
-      for (let i = 0; i < cityData[0].c_list.length; i++) {
-        citys.push(cityData[0].c_list[i].name)
+
+      if (cityDataLen > 0) {
+        const c_list = cityData[0].c_list;
+        const c_listLen = c_list.length;
+        for (let i = 0; i < c_listLen; i++) {
+          citys.push(c_list[i].name)
+        }
+
+        if (c_listLen > 0) {
+          const d_list = c_list[0].d_list;
+          const d_listLen = d_list.length;
+          for (let i = 0; i < d_listLen; i++) {
+            countys.push(d_list[i].name)
+          }
+        }
       }
-      for (let i = 0; i < cityData[0].c_list[0].d_list.length; i++) {
-        countys.push(cityData[0].c_list[0].d_list[i].name)
-      }
+
       this.setData({
         provinces: provinces,
         citys: citys,
@@ -84,12 +97,21 @@ Component({
       if (val[0] != t[0]) {
         const citys = [];
         const countys = [];
-        for (let i = 0; i < cityData[val[0]].c_list.length; i++) {
-          citys.push(cityData[val[0]].c_list[i].name)
+
+        const c_list = cityData[val[0]].c_list;
+        const c_listLen = c_list.length;
+        for (let i = 0; i < c_listLen; i++) {
+          citys.push(c_list[i].name)
         }
-        for (let i = 0; i < cityData[val[0]].c_list[0].d_list.length; i++) {
-          countys.push(cityData[val[0]].c_list[0].d_list[i].name)
+
+        if (c_listLen > 0) {
+          const d_list = c_list[0].d_list;
+          const d_listLen = d_list.length;
+          for (let i = 0; i < d_listLen; i++) {
+            countys.push(d_list[i].name)
+          }
         }
+
         this.setData({
           citys: citys,
           countys: countys,
@@ -99,8 +121,10 @@ Component({
       }
       if (val[1] != t[1]) {
         const countys = [];
-        for (let i = 0; i < cityData[val[0]].c_list[val[1]].d_list.length; i++) {
-          countys.push(cityData[val[0]].c_list[val[1]].d_list[i].name)
+        const d_list = cityData[val[0]].c_list[val[1]].d_list;
+        const d_listLen = d_list.length;
+        for (let i = 0; i < d_listLen; i++) {
+          countys.push(d_list[i].name)
         }
         this.setData({
           countys: countys,
@@ -117,16 +141,19 @@ Component({
     },
     //确定选择
     surePanel: function() {
+      const v0 = this.data.values[0];
+      const v1 = this.data.values[1];
+      const v2 = this.data.values[2];
+
+      const p = this.data.cityData[v0];
+      const c = p.c_list[v1];
+      const d = c.d_list[v2];
+
       //省市区中文名
-      let p_name = this.data.cityData[this.data.values[0]].name
-      let c_name = this.data.cityData[this.data.values[0]].c_list[this.data.values[1]].name
-      let d_name = this.data.cityData[this.data.values[0]].c_list[this.data.values[1]].d_list[this.data.values[2]].name
-      let nameVal = [p_name, c_name, d_name]
+      let nameVal = [p.name, c.name, d.name]
       //省市区id组
-      let p_id = this.data.cityData[this.data.values[0]].id
-      let c_id = this.data.cityData[this.data.values[0]].c_list[this.data.values[1]].id
-      let d_id = this.data.cityData[this.data.values[0]].c_list[this.data.values[1]].d_list[this.data.values[2]].id
-      let selectVal = [p_id, c_id, d_id]
+      let selectVal = [p.id, c.id, d.id]
+
       this.setData({
         value: this.data.values,
         show: false,
