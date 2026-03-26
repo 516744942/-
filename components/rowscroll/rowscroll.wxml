@@ -2,7 +2,8 @@
 <!-- 横向滚动 -->
 <scroll-view scroll-x="true" class='scoll-style' style="margin-bottom:{{mb}}rpx" bindscrolltolower="loadMore" scroll-into-view="{{toId}}" wx:if="{{list.length!=0}}">
   <block wx:for="{{list}}" wx:key="index" id="to{{item.id}}">
-    <template is="{{showType}}" data="{{...item,index,activeShow,listLength}}">
+    <!-- ⚡ Bolt: pass list.length instead of listLength derived from observer -->
+    <template is="{{showType}}" data="{{...item,index,activeShow,listLength:list.length}}">
     </template>
   </block>
 </scroll-view>
