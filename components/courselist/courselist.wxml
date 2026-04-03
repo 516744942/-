@@ -1,7 +1,7 @@
 <!--components/courselist/courselist.wxml-->
 <wxs src="../../utils/filters.wxs" module="F1" />
 
-<view class="flex-r-b p20 f-wrap {{showType==5?'pl40':''}}" wx:if="{{listLength!=0}}">
+<view class="flex-r-b p20 f-wrap {{showType==5?'pl40':''}}" wx:if="{{list.length!=0}}">
   <block wx:for="{{list}}" wx:key="index">
     <view catchtap='goDeatil' id="{{item.cou_id||item.id}}" data-son="{{item.son_id}}">
       <template is="{{showType}}" data="{{...item,index}}">
