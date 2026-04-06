@@ -1,0 +1,3 @@
+## 2026-04-06 - Avoid setData in observers for derived state
+**Learning:** In WeChat Mini Programs, updating state like `listLength` inside an observer for a `list` property triggers redundant secondary re-renders. Additionally, inside a `<template>`, state is fully isolated and only the keys passed in the `data` attribute are accessible. Changing template expressions to `list.length` without passing `list` breaks the template.
+**Action:** Compute derived state directly in the WXML using inline expressions like `list.length` or pass it explicitly to templates via `data="{{listLength: list.length}}"`. Never modify the internal template variable names if the context object itself is not passed.
