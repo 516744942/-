@@ -1,8 +1,9 @@
 <wxs src="../../utils/filters.wxs" module="F1" />
 <!-- 横向滚动 -->
 <scroll-view scroll-x="true" class='scoll-style' style="margin-bottom:{{mb}}rpx" bindscrolltolower="loadMore" scroll-into-view="{{toId}}" wx:if="{{list.length!=0}}">
+  <!-- ⚡ Bolt Optimization: Using list.length directly in the template data binding avoids a redundant setData call in the observer -->
   <block wx:for="{{list}}" wx:key="index" id="to{{item.id}}">
-    <template is="{{showType}}" data="{{...item,index,activeShow,listLength}}">
+    <template is="{{showType}}" data="{{...item,index,activeShow,listLength: list.length}}">
     </template>
   </block>
 </scroll-view>
