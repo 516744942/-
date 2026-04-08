@@ -1,0 +1,3 @@
+## 2023-10-27 - WeChat Mini Program Performance Anti-pattern: Derived state in observers
+**Learning:** Calling `setData` inside an observer to calculate derived state (like array lengths) creates an unnecessary secondary render cycle, adding serialization and rendering overhead.
+**Action:** Instead of storing derived state in `data`, compute it inline directly in WXML (e.g., `{{list.length}}`) or pass it via computed inline properties in templates (e.g., `data="{{listLength: list.length}}"`) to bypass the secondary logical/view sync entirely.
