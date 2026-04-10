@@ -1,0 +1,3 @@
+## 2024-05-14 - Redundant setData on Property Observers
+**Learning:** In WeChat Mini Program WXML, avoiding `setData` inside a component property's `observer` to set derived state (like array lengths) prevents redundant secondary render cycles. Compute and use derived state directly in WXML templates (e.g., `{{list.length}}`) or pass it as computed inline properties (e.g., `data="{{listLength: list.length}}"`) instead.
+**Action:** When working on Mini Program components, avoid updating component `data` with `setData` inside property observers just to derive simple values. Update WXML to calculate these inline or use `wxs` for more complex calculations.
