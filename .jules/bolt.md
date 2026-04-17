@@ -1,0 +1,5 @@
+## 2024-04-17 - Prevent empty-state flashing in WeChat Mini Programs
+
+**Learning:** When trying to remove redundant `setData` calls in observers for derived states (e.g. array lengths) to improve performance, I learned that some components use an initial `listLength: 1` in their `data` block as a UI hack. This hack prevents an empty state from flashing before asynchronous data finishes loading. If the `setData` updating the `listLength` from the observer is completely removed without care, visual regressions (like the empty state incorrectly showing up, or layout breaking) can occur.
+
+**Action:** Before optimizing away derived state `setData` calls, check if the derived state (like `listLength`) has a default value set in `data` (e.g. `listLength: 1`). If it does, removing the `setData` might break a UI loading state hack, so either find a different optimization, update the UI to properly handle loading states, or only optimize components where the derived state is not intentionally hacked for loading UI (like `rowscroll` which had an empty `data` block).
