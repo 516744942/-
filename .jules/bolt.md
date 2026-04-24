@@ -1,0 +1,3 @@
+## 2024-04-24 - [Avoid `setData` for derived state in property observers]
+**Learning:** [In WeChat Mini Program components, updating local data using `setData` inside a property's `observer` (e.g., computing an array's length when the array changes) creates a redundant render cycle. Derived state can be used directly in `.wxml` using expressions like `{{list.length}}` or explicitly passed to templates (e.g. `listLength: list.length`).]
+**Action:** [Check component property observers for trivial derived data calculations using `setData` and refactor them to be computed directly within the template layer where possible.]
