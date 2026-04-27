@@ -1,0 +1,3 @@
+## 2024-04-27 - Conditionally Updating Derived State in Observers
+**Learning:** When removing redundant `setData` calls for derived state (like `listLength`) in WeChat Mini Program components, ensuring UI accuracy is paramount. A previous attempt to only update `listLength` when it toggled between `0` and `>0` caused a bug where length additions wouldn't be reflected.
+**Action:** When an observer must set a derived state used by the UI or child components, wrap the `setData` in a condition (`if (this.data.state !== newValue)`) rather than trying to perfectly predict which state changes matter. This preserves both correctness and performance by eliminating duplicate calls when reference objects update but primitive lengths do not.
