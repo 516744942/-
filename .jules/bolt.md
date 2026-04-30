@@ -1,0 +1,3 @@
+## 2024-05-01 - Avoid derived state setData in Component observers
+**Learning:** In WeChat Mini Program WXML, setting derived state (like array lengths) inside a component's observer using `setData` triggers redundant render cycles. However, removing it entirely is not always safe if the component relies on an initial dummy state (like `listLength: 1`) to prevent empty-state flashing.
+**Action:** When a derived state cannot be cleanly computed in WXML or passed as inline properties because of UI hacks, wrap the `setData` call in a strict equality check (`if (newVal && this.data.listLength !== newVal.length)`) to prevent redundant renders on object reference updates. When removing derived state, always check if `data` initialized it to a specific value.
