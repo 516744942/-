@@ -1,0 +1,3 @@
+## 2024-05-24 - Avoid Redundant `setData` for Array Lengths
+**Learning:** In WeChat Mini Program components, updating a primitive derived state like `listLength` inside an array property observer using `setData` triggers redundant render cycles.
+**Action:** Use computed template variables (e.g., `data="{{...item, listLength: list.length}}"`) to bypass derived state completely. When an initial dummy value (like `1` to prevent empty-state flashes) makes complete removal impossible, wrap the `setData` in a strict equality check (`if (this.data.listLength !== newVal.length)`) to prevent renders when object references update but lengths do not.
