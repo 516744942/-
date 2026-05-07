@@ -1,0 +1,3 @@
+## 2024-11-20 - Derived State Observers Optimization
+**Learning:** Found redundant `setData` calls in observers setting derived state (`listLength: newVal.length`) within multiple mini-program components (`rowscroll`, `courselist`). Setting derived state this way triggers unnecessary secondary rendering cycles.
+**Action:** When a computed property can easily be passed down, use the template directly (e.g. inline property assignment like `listLength: list.length`). In cases where removing `setData` might cause UI regressions due to uninitialized states handling zero-length states, add a simple equality check (`if (newVal && this.data.listLength !== newVal.length)`) before committing new state.
