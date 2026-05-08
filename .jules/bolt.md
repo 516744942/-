@@ -1,0 +1,3 @@
+## 2026-05-08 - [Optimize Component Observers]
+**Learning:** In WeChat Mini Programs, avoid redundant render cycles by computing derived state (like array lengths) directly in WXML templates (e.g. `data="{{...item, listLength: list.length}}"`) instead of calling `setData` inside property observers. If an observer must use `setData` to preserve intentional defaults, wrap it in a strict equality check (`if (this.data.value !== newVal.value)`).
+**Action:** Always prefer inline computed properties in WXML templates over observer-driven `setData` calls, and strictly guard necessary `setData` calls with equality checks to prevent unnecessary DOM updates.
