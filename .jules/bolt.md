@@ -1,0 +1,3 @@
+## 2024-05-24 - WeChat Mini Program `setData` Render Cycle Optimization
+**Learning:** In WeChat Mini Programs, utilizing `setData` inside an `observer` property to track derived states (like calculating array lengths) forces redundant secondary render cycles, introducing a performance bottleneck.
+**Action:** Remove redundant `setData` calls in `observer` functions when the derived state can simply be computed inline within WXML templates. If a `setData` call is completely unavoidable for tracking complex derived state, always wrap it in strict equality and null-safety guards (e.g., `if (newVal && this.data.listLength !== newVal.length)`) to skip unneeded render executions.
