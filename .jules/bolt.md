@@ -1,0 +1,3 @@
+## 2023-10-27 - WeChat Mini Program: Avoid Unnecessary setData in Observers
+**Learning:** In WeChat Mini Programs, updating derived state (e.g., `listLength` from `list`) via `this.setData()` inside a property `observer` triggers redundant secondary render cycles when the property object reference changes but the length does not.
+**Action:** Compute derived state inline in the WXML template (e.g., `<template data="{{...item, listLength: list.length}}">`) when possible. If an explicit `data` default must be preserved for UI reasons (e.g., a "loading state" hack where `listLength: 1` prevents an empty-state flash), wrap the `setData` call in a strict equality check (`if (newVal && this.data.listLength !== newVal.length)`) to skip updating when unnecessary.
