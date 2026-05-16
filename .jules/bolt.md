@@ -1,0 +1,3 @@
+## 2024-05-18 - WeChat Mini Program `setData` Anti-Pattern in Observers
+**Learning:** Using `this.setData` inside property observers to compute derived states like array length triggers an unnecessary secondary render cycle. In WeChat Mini Program, it's more performant to evaluate `.length` directly in the WXML (e.g. `{{list.length}}`) instead of binding it via an extra `setData` call in the logic layer. When `.length` is needed in a WXML template isolated scope, pass it efficiently using `data="{{...item, index, listLength: list.length}}"`.
+**Action:** Identify and remove redundant `setData` calls in property observers for derived states. Update corresponding WXML templates to access the computed property inline.
