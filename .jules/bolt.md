@@ -1,0 +1,3 @@
+## 2026-05-17 - WeChat Mini Program setData Optimization
+**Learning:** In WeChat Mini Programs, setting derived state (like array length) inside property observers using `setData` triggers expensive and redundant render cycles, as it requires serializing data and passing it from the logical layer (JS) to the view layer (WebView).
+**Action:** When possible, compute and pass derived state inline in WXML (e.g., `data="{{...item, listLength: list.length}}"`). When `setData` is unavoidable, guard it with strict equality checks (`if (newVal && this.data.listLength !== newVal.length)`) to prevent updates when object references change but primitive values remain the same.
