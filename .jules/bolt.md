@@ -1,0 +1,3 @@
+## 2024-06-25 - Redundant SetData in WeChat Miniprogram Observers
+**Learning:** Observers on properties (like arrays) that unconditionally call `setData` to update derived states (e.g., `listLength`) cause redundant secondary render cycles, reducing performance by bottlenecking the JS-to-UI bridge.
+**Action:** When possible, remove these `setData` calls and compute the derived state inline within the WXML template (e.g., `data="{{...item, listLength: list.length}}"`). If `setData` cannot be removed (e.g., to preserve default initializations to prevent UI flashes), wrap it in a strict equality check (`if (newVal && this.data.listLength !== newVal.length)`) to minimize bridge communication.
