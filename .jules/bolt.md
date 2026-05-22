@@ -1,0 +1,3 @@
+## 2026-05-22 - [Optimizing setData for derived state in WeChat Mini Programs]
+**Learning:** Computing derived state (like `listLength: list.length`) inside a component property's observer using `setData` is an anti-pattern. It triggers redundant cross-thread communication between the logic and view layers, causing a secondary render cycle.
+**Action:** Always derive simple primitive state natively in WXML templates (e.g., `data="{{listLength: list.length}}"`) to bypass JavaScript overhead. If `setData` is absolutely necessary for fallback values, explicitly wrap it in a strict equality check (`if (newVal && this.data.listLength !== newVal.length)`) to prevent unnecessary renders.
