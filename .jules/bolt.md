@@ -1,0 +1,3 @@
+## 2024-06-03 - Avoid `setData` for derived state in observers
+**Learning:** In WeChat Mini Programs, setting derived state like `listLength: newVal.length` inside property `observer`s using `setData` triggers redundant secondary render cycles, harming performance. This is particularly problematic for long lists (`courselist`, `rowscroll`).
+**Action:** Compute derived state directly in WXML (`wx:if="{{list.length != 0}}"`) or pass it as inline template data (`data="{{...item, listLength: list.length}}"`) to bypass unnecessary observer-driven updates while maintaining `data` initializations (`listLength: 1`) to prevent empty state flashing.
