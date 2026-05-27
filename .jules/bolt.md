@@ -1,0 +1,3 @@
+## 2024-05-27 - WeChat Mini Program: Observer `setData` Redundancy
+**Learning:** Calling `setData` inside an `observer` for an array property to compute its length (e.g., `listLength: newVal.length`) is a common anti-pattern that triggers an expensive secondary render cycle. Even worse, if the array reference updates but the length is unchanged, it still forces a render.
+**Action:** Always compute derived states (like array lengths) directly in WXML (e.g. inline property `listLength: list.length`) to skip the `setData` bridge completely. If `setData` must be preserved (e.g. to maintain an anti-flash default state), strictly wrap it in an equality check (`if (newVal && this.data.listLength !== newVal.length)`).
