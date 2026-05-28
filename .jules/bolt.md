@@ -1,0 +1,3 @@
+## 2024-05-24 - WeChat Mini Program Performance Optimization
+**Learning:** In WeChat Mini Programs, setting derived state (like array lengths) inside component property observers via `setData` triggers redundant secondary render cycles. If `setData` cannot be eliminated entirely, wrapping it in strict equality checks (e.g. `if (newVal && this.data.listLength !== newVal.length)`) is crucial to avoid redundant renders when object references update but the primitive length value remains unchanged.
+**Action:** Always wrap `setData` calls for derived state in observers with strict value equality checks, keeping in mind that some initial dummy data state may be used to avoid UI flash.
