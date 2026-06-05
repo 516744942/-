@@ -1,0 +1,3 @@
+## 2024-05-15 - Unconditional setData in Observers
+**Learning:** Calling `setData` for derived state like `length` inside WeChat Mini Program property observers triggers redundant secondary render cycles, hurting performance. In `courselist`, preserving the default `listLength: 1` in the data block is necessary to prevent UI flashing before async load.
+**Action:** Compute derived state inline in WXML, or wrap `setData` calls in observers with a strict equality check (`if (newVal && this.data.listLength !== newVal.length)`) to prevent redundant render cycles when primitive values haven't changed.
