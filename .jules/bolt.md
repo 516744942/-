@@ -1,0 +1,3 @@
+## 2024-05-24 - WeChat Mini Program observer anti-pattern
+**Learning:** Setting derived state unconditionally inside property observers (like `listLength: newVal.length`) triggers redundant render cycles when object references update but primitive values do not. Removing the default `data` block initializations (e.g., `listLength: 1`) to fix this can introduce visual regressions, as they serve as UI hacks to prevent empty-state flashing.
+**Action:** When updating derived state inside observers that cannot be removed cleanly, wrap the `setData` call in a strict equality check with safety null checks (e.g., `if (newVal && this.data.listLength !== newVal.length)`).
