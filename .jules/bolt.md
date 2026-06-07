@@ -1,0 +1,3 @@
+## 2024-05-24 - Prevent Redundant Render Cycles in Observers
+**Learning:** In WeChat Mini Programs, setting a derived state (like array lengths) inside component properties' observers triggers redundant secondary render cycles every time the object reference updates.
+**Action:** Compute derived state directly in WXML templates (e.g., `{{list.length}}`) or pass it as computed inline properties (e.g., `data="{{listLength: list.length}}"`) instead. If an observer must update a derived state, wrap the `setData` call in a strict equality check with safety null checks (e.g., `if (newVal && this.data.listLength !== newVal.length)`).
