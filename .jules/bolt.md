@@ -1,0 +1,3 @@
+## 2024-06-10 - Redundant render cycles in WeChat Mini Programs caused by observer setData
+**Learning:** In WeChat Mini Programs, updating derived state (like array lengths) inside component `observer` callbacks using `setData` triggers redundant render cycles.
+**Action:** Avoid calling `setData` for derived primitive state inside array observers. Instead, pass the derived state directly to WXML templates via computed inline properties (e.g., `data="{{...item, listLength: list.length}}"`) to bypass secondary rendering, or guard the `setData` call with a strict equality check (`if (newVal && this.data.listLength !== newVal.length)`) if `setData` cannot be safely removed.
