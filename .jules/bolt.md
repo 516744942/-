@@ -1,0 +1,3 @@
+## 2024-05-24 - Prevent Redundant Renders in Property Observers
+**Learning:** Using `this.setData` directly inside a component's property observer (e.g., updating `listLength` when `list` changes) triggers unnecessary secondary render cycles in WeChat Mini Programs. In the WXML `<template>`, `listLength` was an assumed existing scope variable but it wasn't natively accessible.
+**Action:** Compute derived state inline within WXML, e.g., using `data="{{...item, listLength: list.length}}"` when passing to templates, or wrap `setData` in strict equality and null checks (e.g. `if (newVal && this.data.listLength !== newVal.length)`) if `setData` cannot be fully removed to prevent visual flashing during async loads.
