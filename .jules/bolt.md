@@ -1,0 +1,3 @@
+## 2024-06-22 - [WeChat Mini Program Component Optimization]
+**Learning:** Avoid using `setData` inside a component property's `observer` to set derived state (like array lengths), as it triggers redundant secondary render cycles. Compute and use derived state directly in WXML templates or pass it as computed inline properties.
+**Action:** Remove `setData` in `observer` and update WXML to pass the derived state directly, preserving intentional default `data` block initializations if they are used as UI hacks to prevent empty-state flashing. For cases where `setData` can't be purely removed without issues, wrap it in a strict equality check with safety null checks (e.g., `if (newVal && this.data.listLength !== newVal.length)`).
