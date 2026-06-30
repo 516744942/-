@@ -1,0 +1,3 @@
+## 2024-06-25 - Avoid modifying template scopes with blind WXML replacements
+**Learning:** WXML `<template>` blocks have their own isolated scope and only have access to variables explicitly passed through the `data` attribute. Blindly replacing variable names across a whole `.wxml` file can break variables used inside `<template>` blocks.
+**Action:** When modifying WXML templates, check the target scope first. If replacing a derived state globally, carefully ensure the templates inside still receive variables named appropriately or update the passed `data` bindings instead of blindly string-replacing variables inside the `template` body.
