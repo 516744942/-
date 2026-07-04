@@ -1,0 +1,3 @@
+## 2024-05-18 - Avoid redundant setData in observers for derived state
+**Learning:** In WeChat Mini Programs, using `setData` inside a property's `observer` to set derived states (like array lengths) triggers redundant secondary render cycles when object references update. However, if a default `data` initialization (e.g., `listLength: 1`) is used as a UI hack to prevent empty-state flashing, completely removing `setData` causes visual regressions.
+**Action:** Compute derived state directly in WXML templates (e.g., `{{list.length}}` or `data="{{listLength: list.length}}"`) when possible. If an observer must be used to preserve a UI hack, wrap the `setData` call in a strict equality check (`if (newVal && this.data.listLength !== newVal.length)`).
