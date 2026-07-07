@@ -1,0 +1,3 @@
+## 2024-07-07 - WeChat Mini Program Performance: Avoid setData in property observers for derived state
+**Learning:** Using `setData` inside an observer to set derived state (like array length `listLength: newVal.length`) causes redundant secondary render cycles in WeChat Mini Programs.
+**Action:** Compute derived state directly in WXML templates (e.g., `data="{{...item, listLength: list.length}}"`) or wrap the `setData` call in a strict equality check (e.g., `if (newVal && this.data.listLength !== newVal.length)`) to prevent unnecessary re-renders when object references change but primitive values do not.
