@@ -1,0 +1,3 @@
+## 2024-05-24 - Avoid unconditional setData in observers for derived state
+**Learning:** In WeChat Mini Programs, setting derived state (like array lengths) inside a component property's observer using `setData` triggers redundant secondary render cycles. Unconditional `setData` calls worsen this effect, especially in list components like `rowscroll`.
+**Action:** Compute derived state directly in WXML templates (e.g., `list.length`) or pass it as inline properties when possible. If an observer must update derived state (e.g., to preserve default initializations), wrap the `setData` call in a strict equality check (`if (this.data.state !== newState)`) to prevent unnecessary renders.
