@@ -1,0 +1,3 @@
+## 2026-07-18 - Prevent Redundant setData Re-renders in WeChat Mini Program Components
+**Learning:** In WeChat Mini Programs, updating derived state (like array lengths) inside a component property's observer using `setData` triggers unnecessary secondary render cycles.
+**Action:** Compute derived state inline within WXML when possible (e.g., `data="{{listLength: list.length}}"`) or wrap observer `setData` calls in strict equality checks (e.g., `if (this.data.listLength !== newLength)`) while ensuring you don't inadvertently remove intentional default `data` initializations used for visual state hacks.
