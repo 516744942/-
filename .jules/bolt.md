@@ -1,0 +1,4 @@
+
+## 2026-07-25 - Eliminate redundant render cycles in components
+**Learning:** Using `setData` inside a component property's `observer` to set derived state (like array lengths) triggers redundant secondary render cycles. Additionally, if the observer is removed but defaults are still used in the UI, visual regressions might occur, making strict equality checks or inline computations safer alternatives.
+**Action:** Compute derived state directly in WXML templates (e.g., `data="{{listLength: list.length}}"`) where possible. When `setData` must be used (e.g., to preserve default `listLength` initializations as a UI hack), compute the fallback value (`const newLength = newVal ? newVal.length : 0;`) and wrap the `setData` call in a strict equality check (`if (this.data.listLength !== newLength)`).
