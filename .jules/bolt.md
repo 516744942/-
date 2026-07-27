@@ -1,0 +1,3 @@
+## 2024-05-30 - Optimize Derived State Observers in WeChat Mini Programs
+**Learning:** Using `setData` inside an `observer` to compute derived state (like array length) causes redundant secondary render cycles. If the `data` block initializes the state (e.g., `listLength: 1`) to prevent empty-state flashing, it cannot be cleanly removed to WXML.
+**Action:** When derived state can be computed in WXML, pass it inline (e.g., `data="{{listLength: list.length}}"`) and remove the observer `setData`. Otherwise, compute a fallback and wrap the `setData` call in a strict equality check (`if (this.data.listLength !== newLength)`) to prevent redundant render cycles.
