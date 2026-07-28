@@ -1,0 +1,3 @@
+## 2026-07-28 - Prevent secondary render cycles in list observers
+**Learning:** Using `setData` inside a component property's `observer` to update derived state (like array length) triggers redundant render cycles. Additionally, if the default `data` initialization (e.g., `listLength: 1`) is used to prevent empty-state flashing, removing it completely causes visual regressions.
+**Action:** Either remove the `setData` and pass the computed property directly in the WXML (e.g., `data="{{listLength: list.length}}"`), or if the default value is needed for UI hacks, wrap the `setData` call in a strict equality check (`if (this.data.listLength !== newLength)`).
