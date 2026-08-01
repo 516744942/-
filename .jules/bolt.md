@@ -1,0 +1,3 @@
+## 2025-01-30 - Optimize Derived State Updates in WeChat Mini Program Property Observers
+**Learning:** Calling `setData` within a component property's `observer` to compute derived state (e.g. array length) triggers redundant, expensive secondary render cycles. Removing them entirely is the cleanest solution but can introduce visual bugs (like empty-state flashing) if the component logic relies on initialized defaults (e.g., `listLength: 1`).
+**Action:** For derived states tightly coupled to visual loading states, wrap the `setData` call in a strict equality check (`if (this.data.listLength !== newLength)`) rather than removing it entirely, preserving both functionality and minimizing redundant renders.
