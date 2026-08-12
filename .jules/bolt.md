@@ -1,0 +1,3 @@
+## 2024-05-24 - Removed redundant `setData` for derived array length in component observers
+**Learning:** In WeChat Mini Program architecture, calling `setData` inside a component property's `observer` to set derived state (like array lengths) triggers secondary redundant render cycles because `setData` serializes data and sends it across a bridge from the logical layer to the view layer.
+**Action:** Avoid unconditionally computing and storing derived states via `setData` in observers. Instead, compute and use derived state directly in WXML templates (e.g., `{{list.length}}`) or pass it as computed inline properties to templates (e.g., `data="{{listLength: list.length}}"`) to prevent redundant render cycles.
