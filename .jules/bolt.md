@@ -1,0 +1,3 @@
+## 2024-05-24 - Prevent redundant secondary render cycles in WeChat Mini Programs
+**Learning:** Calling `setData` unconditionally inside a property `observer` to set derived state (like array lengths) triggers redundant secondary render cycles, which is a significant performance bottleneck due to serialization over the JS-to-View bridge.
+**Action:** When derived state cannot be computed directly in WXML, wrap the `setData` call inside an equality check (e.g., `if (this.data.listLength !== newLength)`) to prevent unnecessary renders, while ensuring `null` or `undefined` values are handled gracefully.
