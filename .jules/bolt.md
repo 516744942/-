@@ -1,0 +1,3 @@
+## 2024-05-24 - WeChat Mini Program: Avoid Redundant setData in Observers
+**Learning:** In WeChat Mini Program architectures, calling `setData` unconditionally within a property's `observer` triggers expensive redundant secondary render cycles, as it re-serializes data across the logical-to-view bridge.
+**Action:** Instead of observing array props to set their lengths via `setData`, compute the derived state directly in WXML (`{{list.length}}`), pass it inline (e.g., `data="{{listLength: list.length}}"`), or wrap fallback computations in strict equality checks (`if (this.data.listLength !== newLength)`) if preserving UI-hack default states (e.g., `listLength: 1`) is required.
