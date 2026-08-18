@@ -1,0 +1,3 @@
+## 2024-08-18 - Minimize setData in observers for derived state
+**Learning:** In WeChat Mini Program architectures, calling `setData` inside an observer to update derived state (like array lengths from a new list property) triggers redundant secondary render cycles, which is expensive.
+**Action:** Avoid computing derived state via `setData` in observers where possible. Instead, compute and pass it inline in WXML (e.g., `data="{{listLength: list.length}}"`). When an observer *must* use `setData` for state updates (e.g., to preserve default initial states that prevent UI flashing), compute the fallback value and wrap the `setData` call in a strict equality check (`if (this.data.listLength !== newLength)`) to prevent unnecessary renders.
