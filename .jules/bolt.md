@@ -1,0 +1,3 @@
+## 2024-05-18 - [Optimize listLength observers]
+**Learning:** In WeChat Mini Programs, setting derived state (like array lengths) inside component `observer` triggers redundant secondary render cycles, which is expensive due to the bridge. We can avoid this by computing derived state directly in WXML (e.g., `data="{{listLength: list.length}}"`) or wrapping `setData` in a strict equality check (`if (this.data.listLength !== newLength)`) when intentional initializations (like `listLength: 1`) must be preserved to prevent empty-state flashing.
+**Action:** Default to passing computed derived states inline in WXML. If an observer `setData` must be preserved for UI initialization hacks, always wrap it in a strict equality check and provide a valid fallback.
