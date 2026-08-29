@@ -1,0 +1,3 @@
+## 2024-05-18 - [Eliminate Redundant setData in WeChat Mini Program Observers]
+**Learning:** In WeChat Mini Programs, unconditionally calling `setData` for derived state (like array lengths) inside component property observers triggers expensive, redundant secondary render cycles.
+**Action:** Pass derived state directly to templates via inline properties (e.g. `data="{{listLength: list.length}}"`) whenever possible. If `setData` is strictly required to preserve default-state visual hacks, always wrap it in an equality check (e.g., `if (this.data.listLength !== newLength)`) and ensure safe fallback values.
