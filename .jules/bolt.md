@@ -1,0 +1,3 @@
+## 2024-05-24 - Avoid `setData` in observer for derived state
+**Learning:** In WeChat Mini Programs (and similar architectures), the `setData` method is relatively expensive as it serializes data and sends it across a bridge from the logical layer to the view layer. Setting derived state (like array length) inside a component property's `observer` triggers redundant secondary render cycles.
+**Action:** Compute and use derived state directly in WXML templates (e.g., `{{list.length}}`) or pass it as computed inline properties to templates (e.g., `data="{{listLength: list.length}}"`) instead of using `setData` inside an `observer`.
