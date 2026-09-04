@@ -14,12 +14,9 @@ Component({
     },
     showType: {  //1课程  2//活动
       type: Number,
-      value: 1, 
-      observer: function (newVal, oldVal, changedPath) {
-      
+      value: 1
       }
-    },
-  },
+      },
 
   /**
    * 组件的初始数据

@@ -7,8 +7,8 @@ Component({
       type: Boolean,
       value: false,
       observer: '_init'
-    },
-  },
+    }
+      },
   data: {
     cityData: [], //获取到的省市区数据
     provinces: [], //省列表
@@ -29,8 +29,8 @@ Component({
     // 组件所在页面的生命周期函数
     show: function() {},
     hide: function() {},
-    resize: function() {},
-  },
+    resize: function() {}
+      },
 
   methods: {
     //获取省市区
@@ -129,7 +129,7 @@ Component({
       let selectVal = [p_id, c_id, d_id]
       this.setData({
         value: this.data.values,
-        show: false,
+        show: false
       });
       let eventDetail = {
         nameVal: nameVal,

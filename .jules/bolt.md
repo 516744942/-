@@ -1,0 +1,3 @@
+## 2026-09-04 - Prevent Redundant Renders from Derived State in Observers
+**Learning:** In WeChat Mini Programs, setting derived states (like array lengths) via `setData` within a property `observer` causes unnecessary secondary render cycles because `setData` serializes data across the logical/view layer bridge.
+**Action:** Always compute derived states directly in WXML templates (e.g. `{{list.length}}`) or pass them as inline computed properties when instantiating templates (e.g. `data="{{listLength: list.length}}"`) to minimize expensive `setData` calls. Also, clean up dead-code empty observers to reduce logical overhead.

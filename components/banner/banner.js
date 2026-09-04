@@ -14,62 +14,40 @@ Component({
     },
     indicatorDots: { // 是否显示点
       type: Boolean,
-      value: true,
-      observer: function(newVal, oldVal, changedPath) {
-
-      }
-    },
+      value: true
+      },
     interval: { //时间间隔
       type: Number,
-      value: 3000,
-      observer: function(newVal, oldVal, changedPath) {
-
-      }
-    },
+      value: 3000
+      },
     circular: { //是否采用衔接滑动
       type: Boolean,
-      value: true,
-      observer: function(newVal, oldVal, changedPath) {
-
-      }
-    },
+      value: true
+      },
     duration: { //滑动时长
       type: Number,
-      value: 500,
-      observer: function(newVal, oldVal, changedPath) {
-
-      }
-    },
+      value: 500
+      },
     bInfos: { //banner 数组
       type: Array,
-      value: [],
-      observer: function(newVal, oldVal, changedPath) {
-      }
-    },
+      value: []
+      },
     bannerHeight: { //banner图的高度
       type: String,
-      value: '300rpx',
-      observer: function(newVal, oldVal, changedPath) {
-
-      }
-    },
+      value: '300rpx'
+      },
     bannerWidth: { //banner图的宽度
       type: String,
-      value: '100%',
-      observer: function(newVal, oldVal, changedPath) {
-
-      }
-    },
+      value: '100%'
+      },
     borderRadius: { //banner边
       type: String,
-      value: 0,
-      observer: function(newVal, oldVal, changedPath) {}
-    },
+      value: 0
+      },
     bannerType: { //  banner 类型
       type: Number,
-      value: 1,
-      observer: function(newVal, oldVal, changedPath) {}
-    }
+      value: 1
+      }
   },
 
   /**
@@ -121,6 +99,6 @@ Component({
         }
       }
 
-    },
-  }
+    }
+      }
 })
