@@ -16,11 +16,9 @@ Component({
     },
     detail: { //视频信息等详情
       type: Object,
-      value: {},
-      observer: function(newVal, oldVal, changedPath) {
+      value: {}
       }
-    },
-  },
+      },
   attached: function() {
     app.globalData.videoContext = wx.createVideoContext('myVideo')
     this.setData({
