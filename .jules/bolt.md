@@ -1,0 +1,3 @@
+## 2026-09-06 - Remove Empty Observers and Guard Array Length setData
+**Learning:** In WeChat Mini Programs, empty observers (e.g., observer: function(...) {}) clutter the logic layer and can cause unnecessary bridge overhead. Also, using setData unconditionally within an observer to store derived state (like array lengths) triggers redundant secondary render cycles.
+**Action:** Actively remove dead-code observers. When an observer must set a derived state (to preserve default initializations acting as UI hacks against flashing), compute the fallback value and wrap the setData call in a strict equality check (e.g., if (this.data.listLength !== newLength)) to minimize redundant renders.
