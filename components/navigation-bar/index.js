@@ -24,7 +24,7 @@ Component({
     bgStyle: {
       type: String,
       value: 'background-color:#EC6D81;',
-      observer: function(newVal, oldVal, changedPath) {}
+
 
     },
     //  可传入改变navbar title样式
