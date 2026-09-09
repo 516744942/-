@@ -8,9 +8,13 @@ Component({
     list: { //  数组
       type: Array, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
       observer: function(newVal, oldVal, changedPath) {
-        this.setData({
-          listLength: newVal.length
-        })
+        // Optimize: Compute listLength and prevent redundant setData
+        const newLength = newVal ? newVal.length : 0;
+        if (this.data.listLength !== newLength) {
+          this.setData({
+            listLength: newLength
+          })
+        }
         // 属性被改变时执行的函数（可选），也可以写成在methods段中定义的方法名字符串, 如：'_propertyChange'
         // 通常 newVal 就是新设置的数据， oldVal 是旧数据
       }
@@ -56,14 +60,14 @@ Component({
             success: function (res) { }
           })
         }
-        
+
       } else if (this.data.detailType == 2){
         wx.navigateTo({
           url: '/pages/mine/activity/activitydeatil/activitydetail?id=' + e.currentTarget.id,
           success: function (res) { }
         })
       }
-      
+
     }
   }
 })
