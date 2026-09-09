@@ -1,0 +1,3 @@
+## 2024-05-15 - Unconditional `setData` in Observers Causes Redundant Render Cycles
+**Learning:** In WeChat Mini Program architectures, calling `setData` unconditionally within an `observer` function for derived state (like computing array lengths) is a common anti-pattern that triggers unnecessary, expensive serialization and cross-bridge messaging, even if the value hasn't changed.
+**Action:** When updating derived state inside component observers, always compute the value first and wrap the `setData` call in a strict equality check (`if (this.data.state !== newState)`) to prevent redundant secondary render cycles, ensuring better rendering performance.
