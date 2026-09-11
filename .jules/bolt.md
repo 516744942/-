@@ -1,0 +1,3 @@
+## 2026-09-11 - Prevent Unconditional setData in Observers
+**Learning:** Unconditional `setData` calls in observers for derived state (like array lengths) trigger redundant, expensive secondary render cycles across the logical-to-view layer bridge. Completely removing these when the state is used for UI hacks (like preventing empty-state flashes) can cause visual regressions.
+**Action:** When derived state cannot be cleanly removed or computed directly in WXML, compute the fallback value (e.g., `const newLength = newVal ? newVal.length : 0;`) and wrap the `setData` call in a strict equality check (`if (this.data.listLength !== newLength)`) to prevent redundant render cycles.
