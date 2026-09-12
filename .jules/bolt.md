@@ -1,0 +1,3 @@
+## 2024-09-12 - WeChat Mini Program: Observer `setData` Bottlenecks
+**Learning:** Component properties with observers that execute an unconditional `this.setData` (like updating `listLength` from an array property) trigger a costly secondary render cycle over the JS-to-UI bridge. Also, defining empty `observer: function(...) {}` stubs creates unnecessary execution overhead during property changes.
+**Action:** When updating derived state in an observer, wrap the `setData` in a strict equality check (`if (this.data.val !== newVal)`), or remove the observer entirely and compute the derived value inline in the WXML template bindings (e.g., `listLength: list.length`). Always prune dead code/empty observers from the component's `properties` definition.
