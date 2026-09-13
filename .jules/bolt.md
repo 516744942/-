@@ -1,0 +1,3 @@
+## 2026-09-13 - [Optimize derived state setData in Component Observers]
+ **Learning:** Unconditional `setData` calls inside WeChat Mini Program component property `observer`s (often used for derived state like array lengths) trigger redundant secondary render cycles, which is an expensive operation across the JS/View bridge. Simply removing the `setData` can break UI hacks (like preventing empty state flashes).
+ **Action:** Wrap derived state `setData` calls in strict equality checks (e.g., `if (this.data.listLength !== newLength)`) and safely handle null/undefined properties to minimize redundant render cycles while preserving UI stability.
