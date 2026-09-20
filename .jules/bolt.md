@@ -1,0 +1,3 @@
+## 2024-05-24 - Optimize setData calls in component observers
+**Learning:** Unconditionally calling `setData` inside a property's `observer` to set derived state (like array lengths) triggers redundant secondary render cycles. Removing the `setData` entirely can cause visual regressions if a fallback value (like `listLength: 1`) is used to prevent empty-state flashing.
+**Action:** When an observer must update derived state to maintain fallback logic, compute the value and wrap the `setData` call in a strict equality check (`if (this.data.listLength !== newLength)`) to prevent unnecessary renders while preserving UI functionality.
