@@ -17,16 +17,10 @@ Component({
     },
     showType: { // 显示样式
       type: Number,
-      value: 1,
-      observer: function(newVal, oldVal, changedPath) {
-      }
-    },
+      value: 1},
     detailType: { // 1课程详情  2 活动详情
       type: Number,
-      value: 1,
-      observer: function (newVal, oldVal, changedPath) {
-      }
-    }
+      value: 1}
   },
 
   /**

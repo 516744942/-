@@ -1,0 +1,3 @@
+## 2024-05-23 - WeChat Mini Program setData Optimization
+**Learning:** The `setData` method in WeChat Mini Programs is expensive due to bridge serialization. Computing derived states (like array lengths) inside `observer` functions triggers redundant render cycles. Furthermore, empty observers still impose a bridge overhead for state tracking.
+**Action:** Compute derived state directly in WXML (e.g., `{{list.length}}`) or pass it as inline template properties (`data="{{listLength: list.length}}"`) to bypass logic layer `setData` calls. Regularly sweep components for empty `observer` functions to minimize dead code and overhead.

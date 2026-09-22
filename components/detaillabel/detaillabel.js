@@ -14,15 +14,9 @@ Component({
     },
     showType: { //展示类型
       type: Number, 
-      value: 1,
-      observer: function (newVal, oldVal, changedPath) {
-      }
-    },
+      value: 1},
     boxStyle: { //展示类型
-      type: String,
-      observer: function (newVal, oldVal, changedPath) {
-      }
-    },
+      type: String},
   },
 
   /**
