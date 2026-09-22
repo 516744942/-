@@ -49,10 +49,7 @@ Component({
       }
     },
     toId: {
-      type: String,
-      observer: function(newVal, oldVal, changedPath) {
-      }
-    },
+      type: String},
 
   },
   created: function() {
