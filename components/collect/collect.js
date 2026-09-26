@@ -15,9 +15,7 @@ Component({
     },
     cou_id: { // 显示样式
       type: Number,
-      value: 1,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      value: 1
     }
   },
 
