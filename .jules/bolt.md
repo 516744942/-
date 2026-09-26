@@ -1,0 +1,3 @@
+## 2026-09-26 - Optimize WeChat Component Observers
+**Learning:** Empty observers in component `.js` files still cause the framework to register watchers and trigger callbacks across execution boundaries, causing unnecessary bridge serialization overhead in WeChat Mini Programs. Also, computing derived state (e.g. `listLength`) via unconditional `setData` inside an observer triggers redundant render cycles.
+**Action:** Actively remove dead-code observer functions and wrap derived state `setData` calls in strict equality checks (e.g., `if (this.data.listLength !== newLength)`) to minimize bridge communication.

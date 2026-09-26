@@ -23,8 +23,7 @@ Component({
     //  可传入改变navbar样式
     bgStyle: {
       type: String,
-      value: 'background-color:#EC6D81;',
-      observer: function(newVal, oldVal, changedPath) {}
+      value: 'background-color:#EC6D81;'
 
     },
     //  可传入改变navbar title样式
