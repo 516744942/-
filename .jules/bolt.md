@@ -1,0 +1,3 @@
+## 2024-05-24 - Avoid unconditional setData for derived states in WeChat Mini Program components
+**Learning:** In WeChat Mini Program components, unconditionally calling `setData` for derived states (like array lengths) inside property `observer` functions triggers expensive cross-boundary serialization and redundant secondary render cycles, even when the derived state hasn't changed.
+**Action:** Wrap `setData` calls for derived state in strict equality checks (e.g. `this.data.listLength !== newLength`) and compute defensive fallbacks to prevent performance degradation while preserving intentional initial states (e.g. `listLength: 1`).
