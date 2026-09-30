@@ -1,0 +1,3 @@
+## 2026-09-30 - WeChat Mini Program: Removing Dead Code Observers
+**Learning:** In WeChat Mini Programs, defining component property observer functions, even if they are completely empty (e.g., observer: function(...) {}), registers watchers across the logical and view layers. This forces the framework to trigger callbacks and execute cross-boundary communication unnecessarily during data updates, contributing to bridge serialization overhead.
+**Action:** Always actively identify and remove empty or dead-code observer functions in Mini Program components to clean up the logic layer and minimize framework overhead.
