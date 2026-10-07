@@ -6,8 +6,6 @@ Component({
   properties: {
     list: {
       type: Array,
-      observer: function (newVal, oldVal, changedPath) {
-      }
     },
     activeIndex: {
       type: Number,
