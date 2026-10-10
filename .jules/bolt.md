@@ -1,0 +1,3 @@
+## 2024-05-24 - [Optimize Component Observers]
+**Learning:** In WeChat Mini Programs, `setData` is relatively expensive as it serializes data and sends it across a bridge. Unconditional `setData` calls for derived state in component observers trigger redundant secondary render cycles. Additionally, empty `observer` functions (dead code) still register cross-boundary watchers in the framework, increasing bridge overhead.
+**Action:** Always conditionally guard `setData` calls (e.g., check `if (this.data.value !== newValue)`) inside observers. Actively identify and remove empty or dead-code observer functions to minimize bridge serialization overhead.

@@ -16,7 +16,7 @@ Component({
       }
     },
     join: { //  加入学院
-      type: String, 
+      type: String,
       observer: function (newVal, oldVal, changedPath) {
         // 属性被改变时执行的函数（可选），也可以写成在methods段中定义的方法名字符串, 如：'_propertyChange'
         // 通常 newVal 就是新设置的数据， oldVal 是旧数据
@@ -24,38 +24,25 @@ Component({
     },
     cou_id: { //  课程id
       type: Number,
-      value: 1, 
-      observer: function (newVal, oldVal, changedPath) {
-       
-      }
+      value: 1
     },
     is_sale: { //  1免费 2收费
       type: Number,
-      value: 0,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      value: 0
     },
     ins_id: { //学院id
-      type: Number,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      type: Number
     },
     price: { //学院id
-      type: Number,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      type: Number
     },
     price: { //学院id
-      type: Number,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      type: Number
     },
     detail: { //学院id
-      type: Object,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      type: Object
+    }
     },
-  },
 
   /**
    * 组件的初始数据
@@ -93,8 +80,6 @@ Component({
       let self = this;
       app.globalData.ins_id = self.data.ins_id
       common.joinScool(self)
-    },
-   
-    
-  }
+    }
+    }
 })
