@@ -49,12 +49,9 @@ Component({
       }
     },
     toId: {
-      type: String,
-      observer: function(newVal, oldVal, changedPath) {
-      }
+      type: String
+    }
     },
-
-  },
   created: function() {
   },
   /**
@@ -100,8 +97,8 @@ Component({
       this.setData({
         activeShow: event.currentTarget.dataset.index,
         color: event.currentTarget.dataset.color || false,
-        join_status: event.currentTarget.dataset.join || false,
-      })
+        join_status: event.currentTarget.dataset.join || false
+    })
       var myEventDetail = {
         activeIndex: this.data.activeShow,
         color: this.data.color,
