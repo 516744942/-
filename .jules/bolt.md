@@ -1,0 +1,3 @@
+## 2024-05-18 - WeChat Mini Program: Avoid Redundant Bridge Calls
+**Learning:** In WeChat Mini Programs, setting state across execution boundaries (`setData`) and leaving empty watcher functions (like `observer: function(...) {}`) both cause serialization overhead and redundant render cycles, even if the observer body is empty.
+**Action:** Remove empty `observer` blocks in components and compute derived states (like array lengths) directly in WXML templates (e.g. `listLength: list.length`) rather than using `setData` inside an observer to update state. Be careful when regexing out object properties to avoid trailing comma issues in JS objects that break syntax.
