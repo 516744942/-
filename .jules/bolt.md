@@ -1,0 +1,3 @@
+## 2023-10-18 - Remove empty observers and redundant setData
+**Learning:** In WeChat Mini Programs, empty observer functions still incur overhead because the framework registers watchers and triggers callbacks across execution boundaries. Redundant setData calls for derived state (like array lengths) inside component property observers trigger secondary render cycles unnecessarily.
+**Action:** Actively identify and remove empty or dead-code observer functions to clean up the logic layer and minimize bridge serialization overhead. Compute derived state directly in WXML templates (e.g., {{list.length}}) rather than using setData inside observers.
