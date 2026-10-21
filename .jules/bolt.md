@@ -1,0 +1,3 @@
+## 2026-10-21 - [Remove dead observers and conditionalize derived state]
+**Learning:** WeChat Mini Programs register component watchers across the execution boundary for all defined observer functions, even if they are empty or only contain comments. Additionally, updating derived state (like array lengths) inside an observer via unconditional `setData` calls triggers redundant, secondary render cycles.
+**Action:** Actively remove empty observer functions during component refactoring. When an observer must derive state via `setData`, calculate the fallback value cleanly and wrap the assignment in a strict equality check to prevent unnecessary bridge serialization.
