@@ -7,60 +7,37 @@ Component({
     img: { // 移动区域的图片
       type: String, // 类型（必填），目前接受的类型包括：String, Number, Boolean, Object, Array, null（表示任意类型）
       value: '', // 属性初始值（可选），如果未指定则会根据类型选择一个
-      observer: function (newVal, oldVal, changedPath) {
-        // 属性被改变时执行的函数（可选），也可以写成在methods段中定义的方法名字符串, 如：'_propertyChange'
-        // 通常 newVal 就是新设置的数据， oldVal 是旧数据
-      }
+
     },
     text: { // 移动区域默认文字
-      type: String, 
-      value: '返回首页', 
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      type: String,
+      value: '返回首页'
     },
     wordColor: { // 移动区域默认文字颜色
       type: String,
-      value: '#FFFFFF',
-      observer: function (newVal, oldVal, changedPath) {
-        
-      }
+      value: '#FFFFFF'
     },
     bgColor: { // 移动区域背景图片的颜色
       type: String,
-      value: '#0000FF',
-      observer: function (newVal, oldVal, changedPath) {
-        
-      }
+      value: '#0000FF'
     },
     leftPosition: { // 移动区域左边的距离
       type: String,
-      value: '100%',
-      observer: function (newVal, oldVal, changedPath) {
-        
-      }
+      value: '100%'
     },
     topPosition: { // 移动区域距离上边的距离
       type: String,
-      value: '40%',
-      observer: function (newVal, oldVal, changedPath) {
-        
-      }
+      value: '40%'
     },
     topPlace: { // 整体区域的上边距离
       type: String,
-      value: '80',
-      observer: function (newVal, oldVal, changedPath) {
-        
-      }
+      value: '80'
     },
     goType:{ // 详情类型 ，默认回到首页
       type: Number,
-      value: 1,
-      observer: function (newVal, oldVal, changedPath) {
-
-      }
+      value: 1
     }
-    
+
   },
 
   /**
@@ -154,7 +131,7 @@ Component({
         //   })
         // }
       }
-      
+
     },
   }
 })
