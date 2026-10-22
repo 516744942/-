@@ -1,0 +1,3 @@
+## 2024-10-23 - [WeChat Mini Program Component Observer Overhead]
+**Learning:** WeChat Mini Program components register watchers for `observer` properties even if the functions are empty, adding cross-boundary bridge overhead. Furthermore, calling `setData` unconditionally inside an observer for derived state (like array lengths) triggers redundant secondary render cycles.
+**Action:** Actively remove dead-code observer functions and wrap `setData` calls in strict equality checks (e.g., `if (this.data.len !== newLen)`) or move derived logic to WXML to minimize serialization overhead and avoid unnecessary renders.
