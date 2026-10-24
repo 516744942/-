@@ -13,17 +13,13 @@ Component({
       }
     },
     showType: { //展示类型
-      type: Number, 
-      value: 1,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      type: Number,
+      value: 1
     },
     boxStyle: { //展示类型
-      type: String,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      type: String
+    }
     },
-  },
 
   /**
    * 组件的初始数据
