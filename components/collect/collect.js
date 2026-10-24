@@ -15,9 +15,7 @@ Component({
     },
     cou_id: { // 显示样式
       type: Number,
-      value: 1,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      value: 1
     }
   },
 
@@ -39,8 +37,8 @@ Component({
         return;
       }
       self.setData({
-        collect_status: false,
-      });
+        collect_status: false
+    });
       wx.request({
         url: app.globalData.baseUrl + '/institute/course-api/course-collect',
         method: 'POST',
@@ -48,16 +46,16 @@ Component({
           token: app.globalData.token,
           token_type: 1,
           type: 1,
-          cou_id: self.data.cou_id,
-        },
+          cou_id: self.data.cou_id
+    },
         header: {
           'content-type': 'application/json' // 默认值
         },
         success: function(res) {
           if (res.data.errmsg == "收藏成功") {
             self.setData({
-              collect: 1,
-            });
+              collect: 1
+    });
             wx.showToast({
               title: res.data.errmsg,
               icon: 'success',
@@ -65,8 +63,8 @@ Component({
             })
           } else if (res.data.errmsg == "取消收藏成功") {
             self.setData({
-              collect: 2,
-            });
+              collect: 2
+    });
             wx.showToast({
               title: res.data.errmsg,
               icon: 'success',
@@ -76,8 +74,8 @@ Component({
         }
       })
       self.setData({
-        collect_status: true,
-      });
-    },
-  }
+        collect_status: true
+    });
+    }
+    }
 })
