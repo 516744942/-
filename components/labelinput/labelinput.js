@@ -19,51 +19,32 @@ Component({
     
     canEdit: { //可以编辑
       type: Boolean,
-      value: true, 
-      observer: function (newVal, oldVal, changedPath) {
-        
-      }
+      value: true
     },
     inputVaue: { //值
-      type: String,
-      observer: function (newVal, oldVal, changedPath) {
-
-      }
+      type: String
     },
     hasLogo: { //有logo默认显示
       type: Boolean,
-      value: false,
-      observer: function (newVal, oldVal, changedPath) {
-
-      }
+      value: false
     },
     
     editType: { //可以编辑的类型 1 进入编辑详情
       type: Number,
-      value: 1,
-      observer: function (newVal, oldVal, changedPath) {
-
-      }
+      value: 1
     },
     modelType: { //picker的类型 selector
       type: String,
-      value: "date",
-      observer: function (newVal, oldVal, changedPath) {
-
-      }
+      value: "date"
     },
     modelRange: { //picker的类型
       type: Array,
-      value: [],
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      value: []
     },
     infoType: { //进入详情的信息
-      type: Number,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      type: Number
+    }
     },
-  },
 
   /**
    * 组件的初始数据
@@ -92,6 +73,6 @@ Component({
       var myEventDetail = { value:event.detail.value} // detail对象，提供给事件监听函数
       var myEventOption = {} // 触发事件的选项
       self.triggerEvent('choice', myEventDetail, myEventOption)
-    },
-  }
+    }
+    }
 })

@@ -24,38 +24,25 @@ Component({
     },
     cou_id: { //  课程id
       type: Number,
-      value: 1, 
-      observer: function (newVal, oldVal, changedPath) {
-       
-      }
+      value: 1
     },
     is_sale: { //  1免费 2收费
       type: Number,
-      value: 0,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      value: 0
     },
     ins_id: { //学院id
-      type: Number,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      type: Number
     },
     price: { //学院id
-      type: Number,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      type: Number
     },
     price: { //学院id
-      type: Number,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      type: Number
     },
     detail: { //学院id
-      type: Object,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      type: Object
+    }
     },
-  },
 
   /**
    * 组件的初始数据
@@ -93,8 +80,6 @@ Component({
       let self = this;
       app.globalData.ins_id = self.data.ins_id
       common.joinScool(self)
-    },
-   
-    
-  }
+    }
+    }
 })

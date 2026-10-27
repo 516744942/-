@@ -14,36 +14,25 @@ Component({
     },
     word: { // 副标题
       type: String, 
-      value:"查看更多",
-      observer: function (newVal, oldVal, changedPath) {
-       
-      }
+      value:"查看更多"
     },
     url: { // 路径链接
       type: String, 
-      value:"",
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      value:""
     },
     showType: { // 显示样式
       type: Number,
-      value: 2,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      value: 2
     },
     lookMore: { // 显示样式
       type: Boolean,
-      value: false,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      value: false
     },
     bgColor: { // 显示样式
       type: String,
-      value: '#fff',
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      value: '#fff'
+    }
     },
-  },
 
   /**
    * 组件的初始数据
@@ -67,6 +56,6 @@ Component({
           
         }
       })
-    },
-  }
+    }
+    }
 })
