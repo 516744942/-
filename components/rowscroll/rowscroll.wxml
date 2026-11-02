@@ -2,7 +2,7 @@
 <!-- 横向滚动 -->
 <scroll-view scroll-x="true" class='scoll-style' style="margin-bottom:{{mb}}rpx" bindscrolltolower="loadMore" scroll-into-view="{{toId}}" wx:if="{{list.length!=0}}">
   <block wx:for="{{list}}" wx:key="index" id="to{{item.id}}">
-    <template is="{{showType}}" data="{{...item,index,activeShow,listLength}}">
+    <template is="{{showType}}" data="{{...item,index,activeShow,listLength: list.length}}">
     </template>
   </block>
 </scroll-view>
@@ -25,8 +25,8 @@
 
 <!-- 学院导航 -->
 <template name="nav">
-  <block wx:if="{{listLength>=1}}">
-    <view class="title-total2 {{listLength<3?'width50':'width33'}}" data-index="{{index}}" data-color='{{color}}' bind:tap='action' data-join='{{join_status}}' wx:if="{{button}}">
+  <block wx:if="{{list.length>=1}}">
+    <view class="title-total2 {{list.length<3?'width50':'width33'}}" data-index="{{index}}" data-color='{{color}}' bind:tap='action' data-join='{{join_status}}' wx:if="{{button}}">
       <view class="title-styl2  {{index==activeShow?'active-choice2':''}}">{{name}}</view>
     </view>
   </block>
@@ -34,7 +34,7 @@
 </template>
 <!-- 学院导航Two -->
 <template name="navTwo">
-  <block wx:if="{{listLength>=1}}">
+  <block wx:if="{{list.length>=1}}">
     <view class='p40 university flex-c' catchtap='joinSchool' id="{{id}}" data-index="{{index}}" wx:if="{{button}}">
       <image class='university-pic' src='{{img_url}}' mode="aspectFill" lazy-load='true'></image>
       <view class='university-name text-line1'>{{name}}</view>
