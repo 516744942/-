@@ -1,0 +1,3 @@
+## 2026-11-04 - WeChat Mini Program: Avoid Unnecessary setData in Component Observers
+**Learning:** In WeChat Mini Programs, setting derived state (like list lengths) using `setData` inside a component property's `observer` triggers redundant secondary render cycles, which incurs bridge serialization overhead. Also, keeping empty observer callbacks registers unnecessary watchers.
+**Action:** Remove `setData` calls in observers when computing derived state, and instead evaluate it directly in WXML templates (e.g., `{{list.length}}`) or pass as computed inline properties (e.g., `data="{{listLength: list.length}}"`). Actively identify and remove empty observer functions during refactoring.
