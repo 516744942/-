@@ -54,6 +54,6 @@ Component({
           loading_state: true,
         })
       }
-    }, 
+    },
   }
 })
