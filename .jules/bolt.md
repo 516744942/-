@@ -1,0 +1,3 @@
+## 2026-11-06 - Optimize setData calls in WeChat Mini Program component observers
+**Learning:** Calling `setData` unconditionally inside property observers to set derived state (like array lengths) triggers redundant secondary render cycles, reducing performance in WeChat Mini Programs due to serialization overhead across the bridge.
+**Action:** For simple derived state, compute it directly in WXML or pass it as computed inline properties (e.g., `data="{{listLength: list.length}}"`). For state that requires an observer, wrap the `setData` call in a strict equality check to prevent redundant updates, while handling null/undefined correctly.
