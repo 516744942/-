@@ -14,17 +14,11 @@ Component({
     },
     hasp:{
       type: Number,
-      value: 0,
-      observer: function(newVal, oldVal, changedPath) {
-
-      }
+      value: 0
     },
     bgColor: {
       type: String,
-      value: '#fff',
-      observer: function (newVal, oldVal, changedPath) {
-
-      }
+      value: '#fff'
     }
   },
 
