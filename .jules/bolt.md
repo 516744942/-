@@ -1,0 +1,3 @@
+## 2026-11-07 - Optimize WeChat Mini Program setData and Empty Observers
+**Learning:** In WeChat Mini Programs, the setData method is expensive due to bridge serialization between the logical layer and view layer. Unconditional setData calls in property observers for derived state (like array lengths) cause redundant render cycles. Additionally, the framework registers watchers and triggers callbacks for property observers even if the function body is empty or dead code, introducing unnecessary overhead.
+**Action:** Wrap setData calls inside observers with strict equality checks against the current state to prevent redundant updates. Actively identify and remove empty or dead-code observer functions to minimize bridge serialization overhead.
