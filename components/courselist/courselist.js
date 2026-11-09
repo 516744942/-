@@ -17,15 +17,11 @@ Component({
     },
     showType: { // 显示样式
       type: Number,
-      value: 1,
-      observer: function(newVal, oldVal, changedPath) {
-      }
+      value: 1
     },
     detailType: { // 1课程详情  2 活动详情
       type: Number,
-      value: 1,
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      value: 1
     }
   },
 
@@ -56,14 +52,14 @@ Component({
             success: function (res) { }
           })
         }
-        
+
       } else if (this.data.detailType == 2){
         wx.navigateTo({
           url: '/pages/mine/activity/activitydeatil/activitydetail?id=' + e.currentTarget.id,
           success: function (res) { }
         })
       }
-      
+
     }
   }
 })
