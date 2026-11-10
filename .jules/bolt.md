@@ -1,0 +1,3 @@
+## 2026-11-10 - Optimize WeChat Mini Program Component Observers
+**Learning:** In WeChat Mini Program architectures, empty observer functions or ones that trigger redundant `setData` calls for derived states cause unnecessary cross-boundary serialization overhead. Furthermore, removing fallback properties (e.g. `listLength: 1`) can introduce rendering regressions prior to async data loads.
+**Action:** Actively remove dead-code observers. When tracking derived states like array lengths, wrap `setData` in strict equality checks (e.g., `if (this.data.listLength !== newLength)`) and ensure null or undefined gracefully evaluate to `0`.
