@@ -14,14 +14,10 @@ Component({
     },
     universityType: { // 课程得类型
       type: Number,
-      value: -1,
-      observer: function(newVal, oldVal, changedPath) {
-      }
+      value: -1
     },
     university: { // 学院
-      type: Array,
-      observer: function(newVal, oldVal, changedPath) {
-      }
+      type: Array
     },
 
   },
