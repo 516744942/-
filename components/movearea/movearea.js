@@ -14,51 +14,31 @@ Component({
     },
     text: { // 移动区域默认文字
       type: String, 
-      value: '返回首页', 
-      observer: function (newVal, oldVal, changedPath) {
-      }
+      value: '返回首页'
     },
     wordColor: { // 移动区域默认文字颜色
       type: String,
-      value: '#FFFFFF',
-      observer: function (newVal, oldVal, changedPath) {
-        
-      }
+      value: '#FFFFFF'
     },
     bgColor: { // 移动区域背景图片的颜色
       type: String,
-      value: '#0000FF',
-      observer: function (newVal, oldVal, changedPath) {
-        
-      }
+      value: '#0000FF'
     },
     leftPosition: { // 移动区域左边的距离
       type: String,
-      value: '100%',
-      observer: function (newVal, oldVal, changedPath) {
-        
-      }
+      value: '100%'
     },
     topPosition: { // 移动区域距离上边的距离
       type: String,
-      value: '40%',
-      observer: function (newVal, oldVal, changedPath) {
-        
-      }
+      value: '40%'
     },
     topPlace: { // 整体区域的上边距离
       type: String,
-      value: '80',
-      observer: function (newVal, oldVal, changedPath) {
-        
-      }
+      value: '80'
     },
     goType:{ // 详情类型 ，默认回到首页
       type: Number,
-      value: 1,
-      observer: function (newVal, oldVal, changedPath) {
-
-      }
+      value: 1
     }
     
   },
